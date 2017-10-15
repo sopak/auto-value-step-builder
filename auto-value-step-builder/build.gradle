@@ -1,0 +1,25 @@
+apply plugin: 'java-library'
+apply plugin: 'maven-publish'
+
+sourceCompatibility = vars.sourceCompatibility
+targetCompatibility = vars.sourceCompatibility
+
+dependencies {
+    // To avoid compiler warnings about @API annotations in JUnit code.
+    compile libs.apiGuardian
+
+    api libs.velocity
+    api libs.velocityTools
+    api libs.autoValue
+    api libs.autoCommon
+    api libs.autoService
+    api libs.jsr305
+
+    api project(':auto-value-step-builder-annotations')
+
+    testCompile libs.junit5
+    testCompile libs.junit5Params
+    testCompile libs.googleCompileTesting
+    testCompile libs.commonsIo
+    testCompile files(org.gradle.internal.jvm.Jvm.current().getToolsJar())
+}

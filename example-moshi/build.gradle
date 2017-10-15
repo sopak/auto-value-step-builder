@@ -1,0 +1,23 @@
+apply plugin: 'java'
+apply plugin: 'net.ltgt.apt'
+apply plugin: 'idea'
+
+sourceCompatibility = vars.sourceCompatibility
+targetCompatibility = vars.sourceCompatibility
+
+dependencies {
+    // To avoid compiler warnings about @API annotations in JUnit code.
+    compile libs.apiGuardian
+
+    compile libs.guava
+    compile libs.moshi
+    compile libs.moshiAdapters
+
+    compileOnly libs.autoValueMoshi
+    apt libs.autoValueMoshi
+
+    compileOnly project(':auto-value-step-builder')
+    apt project(':auto-value-step-builder')
+
+    testCompile libs.junit5
+}

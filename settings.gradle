@@ -1,0 +1,7 @@
+include 'auto-value-step-builder-annotations'
+include 'auto-value-step-builder'
+include 'example'
+include 'example-moshi'
+include 'example-kotlin'
+
+

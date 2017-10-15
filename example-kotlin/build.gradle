@@ -1,0 +1,33 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath libs.kotlinPlugin
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'kotlin'
+apply plugin: 'net.ltgt.apt'
+apply plugin: 'idea'
+
+sourceCompatibility = vars.sourceCompatibility
+targetCompatibility = vars.sourceCompatibility
+
+dependencies {
+    // To avoid compiler warnings about @API annotations in JUnit code.
+    compile libs.apiGuardian
+
+    testCompile libs.kotlin
+    testCompile libs.guava
+    testCompile libs.junit5
+    testCompile project(':example')
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = vars.sourceCompatibility
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = vars.sourceCompatibility
+}

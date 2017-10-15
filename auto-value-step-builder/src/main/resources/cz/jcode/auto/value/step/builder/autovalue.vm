@@ -1,0 +1,273 @@
+## Template for each generated AutoValue_Foo class.
+## This template uses the Apache Velocity Template Language (VTL).
+## The variables ($pkg, $props, and so on) are defined by the fields of AutoValueTemplateVars.
+##
+## Comments, like this one, begin with ##. The comment text extends up to and including the newline
+## character at the end of the line. So comments also serve to join a line to the next one.
+## Velocity deletes a newline after a directive (#if, #foreach, #end etc) so ## is not needed there.
+## That does mean that we sometimes need an extra blank line after such a directive.
+##
+## A post-processing step will remove unwanted spaces and blank lines, but will not join two lines.
+
+#if (!$pkg.empty)
+package $pkg;
+#end
+
+#foreach ($i in $imports)
+import $i;
+#end
+
+#if ($generated != "")
+@${generated}("cz.jcode.auto.value.step.builder.AutoValueStepBuilderExtension")
+#end
+public #if ($isFinal) final #else abstract #end class $className${formalTypes} extends $classToExtend${formalTypes} {
+
+    $className(
+#foreach ($p in $props)
+            #if ($p.optional)@javax.annotation.Nullable #end ${p.type} $p#if( $foreach.hasNext ), #end
+
+#end
+        ){
+        super(
+#foreach ($p in $props)
+            $p#if( $foreach.hasNext ), #end
+
+#end
+
+        );
+    }
+
+    public interface BuildStep${formalTypes} extends java.util.function.Supplier<$originalClassName>
+    {
+        $originalClassName build();
+    }
+
+    public interface BuilderStep${formalTypes} #if ($optional.size() == 0) extends BuildStep${formalTypes} #end
+    {
+#if ($optional.size() >0)
+        OptionalStep${formalTypes} optional();
+#end
+    }
+
+#if ($optional.size() >0)
+    public interface OptionalStep${formalTypes} extends BuildStep${formalTypes}
+    {
+#foreach ($p in $optional)
+        OptionalStep${formalTypes} $p(${p.type} ${p});
+#end
+    }
+#end
+
+    public interface BuilderLazyStep${formalTypes} #if ($optional.size() == 0) extends BuildStep${formalTypes} #end
+    {
+#if ($optional.size() >0)
+        OptionalLazyStep${formalTypes} optional();
+#end
+    }
+
+#if ($optional.size() >0)
+    public interface OptionalLazyStep${formalTypes} extends BuildStep${formalTypes}
+    {
+#foreach ($p in $optional)
+        OptionalLazyStep${formalTypes} $p(java.util.function.Supplier<${p.type}> ${p}Supplier);
+        OptionalLazyStep${formalTypes} $p(${p.type} ${p});
+#end
+    }
+#end
+
+#foreach ($p in $required)
+    public interface $p.stepInterface${formalTypes}
+    {
+        $p.nextType${formalTypes} $p(${p.type} $p);
+    }
+
+    public interface $p.lazyStepInterface${formalTypes}
+    {
+        $p.nextLazyType${formalTypes} $p(java.util.function.Supplier<${p.type}> ${p}Supplier);
+        $p.nextLazyType${formalTypes} $p(${p.type} ${p});
+    }
+
+#end
+
+    public static ${formalTypes} $firstRequired.stepInterface${formalTypes} step()
+    {
+        return StepBuilder.${formalTypes}step();
+    }
+
+    public static class StepBuilder${formalTypes} implements #foreach ($p in $required)$p.stepInterface${formalTypes}, #end BuilderStep${formalTypes}#if ($optional.size() >0), OptionalStep${formalTypes}#end
+    {
+
+#foreach ($p in $props)
+        private ${p.type} ${p} = null;
+#end
+
+        public static ${formalTypes} $firstRequired.stepInterface${formalTypes} step()
+        {
+            return new StepBuilder${formalTypes}();
+        }
+
+#foreach ($p in $required)
+        @Override
+        public $p.nextType${formalTypes} $p(${p.type} ${p})
+        {
+            if (${p} == null) {
+                throw new NullPointerException("Null ${p}");
+            }
+            this.$p = $p;
+            return this;
+        }
+
+
+#end
+#foreach ($p in $optional)
+        @Override
+        public OptionalStep${formalTypes} $p(${p.type} ${p})
+        {
+            this.$p = $p;
+            return this;
+        }
+
+
+#end
+#if ($optional.size() >0)
+        @Override
+        public OptionalStep${formalTypes} optional()
+        {
+            return this;
+        }
+
+
+#end
+        @Override
+        public $originalClassName build()
+        {
+#if($builderTypeCreator != "")
+            return $builderTypeCreator
+#foreach ($p in $props)
+                .$p($p)
+#end
+                .build();
+#else
+            return new $className${formalTypes}(
+#foreach ($p in $props)
+                    ${p} #if( $foreach.hasNext ), #end
+
+
+#end
+
+                );
+#end
+        }
+
+        @Override
+        public $originalClassName get() {
+            return build();
+        }
+
+    }
+
+    public static ${formalTypes} $firstRequired.lazyStepInterface${formalTypes} lazyStep()
+    {
+        return LazyStepBuilder.${formalTypes}lazyStep();
+    }
+
+    public static class LazyStepBuilder${formalTypes} implements #foreach ($p in $required)$p.lazyStepInterface${formalTypes}, #end BuilderLazyStep${formalTypes}#if ($optional.size() >0), OptionalLazyStep${formalTypes}#end
+    {
+
+#foreach ($p in $props)
+        private java.util.function.Supplier<${p.type}> ${p}Supplier = null;
+        private ${p.type} ${p} = null;
+#end
+
+        public static ${formalTypes} $firstRequired.lazyStepInterface${formalTypes} lazyStep()
+        {
+            return new LazyStepBuilder${formalTypes}();
+        }
+
+#foreach ($p in $required)
+        @Override
+        public $p.nextLazyType${formalTypes} $p(java.util.function.Supplier<${p.type}> ${p}Supplier)
+        {
+            if (${p}Supplier == null) {
+                throw new NullPointerException("Null ${p}Supplier");
+            }
+            this.${p} = null;
+            this.${p}Supplier = ${p}Supplier;
+            return this;
+        }
+
+        @Override
+        public $p.nextLazyType${formalTypes} $p(${p.type} ${p})
+        {
+            if (${p} == null) {
+                throw new NullPointerException("Null ${p}");
+            }
+            this.${p}Supplier = null;
+            this.${p} = ${p};
+            return this;
+        }
+
+#end
+#foreach ($p in $optional)
+        @Override
+        public OptionalLazyStep${formalTypes} $p(java.util.function.Supplier<${p.type}> ${p}Supplier)
+        {
+            this.${p}Supplier = ${p}Supplier;
+            return this;
+        }
+
+        @Override
+        public OptionalLazyStep${formalTypes} $p(${p.type} ${p})
+        {
+            this.${p}Supplier = null;
+            this.${p} = ${p};
+            return this;
+        }
+
+
+#end
+#if ($optional.size() >0)
+        @Override
+        public OptionalLazyStep${formalTypes} optional()
+        {
+            return this;
+        }
+
+
+#end
+
+
+        @Override
+        public $originalClassName build()
+        {
+#if($builderTypeCreator != "")
+            return $builderTypeCreator
+#foreach ($p in $required)
+                .$p(null == $p ? ${p}Supplier.get() : ${p})
+
+#end
+#foreach ($p in $optional)
+                .$p(null == ${p} ? ( null == ${p}Supplier ? null : ${p}Supplier.get() ) : ${p})
+
+#end
+                .build();
+#else
+            return new $className${formalTypes}(
+#foreach ($p in $props)
+                    null == ${p} ? ( null == ${p}Supplier ? null : ${p}Supplier.get() ) : ${p} #if( $foreach.hasNext ), #end
+
+
+#end
+
+                );
+#end
+        }
+
+        @Override
+        public $originalClassName get() {
+            return build();
+        }
+
+    }
+
+}

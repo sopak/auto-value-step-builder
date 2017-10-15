@@ -1,0 +1,6 @@
+apply plugin: 'java'
+apply plugin: 'net.ltgt.apt'
+apply plugin: 'idea'
+
+sourceCompatibility = vars.sourceCompatibility
+targetCompatibility = vars.sourceCompatibility
