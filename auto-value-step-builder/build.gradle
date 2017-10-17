@@ -1,6 +1,5 @@
 apply plugin: 'java-library'
 apply plugin: 'maven-publish'
-
 sourceCompatibility = vars.sourceCompatibility
 targetCompatibility = vars.sourceCompatibility
 
@@ -22,4 +21,44 @@ dependencies {
     testCompile libs.googleCompileTesting
     testCompile libs.commonsIo
     testCompile files(org.gradle.internal.jvm.Jvm.current().getToolsJar())
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier = 'sources'
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+publish.dependsOn(build)
+//publish.dependsOn(javadocJar)
+publish.dependsOn(sourcesJar)
+publishToMavenLocal.dependsOn(publish)
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId GROUP
+            artifactId 'auto-value-step-builder'
+            version VERSION_NAME
+            from components.java
+            artifact sourcesJar
+            //artifact javadocJar
+            pom.withXml {
+                asNode().appendNode('name', 'Auto Value Step Builder')
+                asNode().appendNode('url', 'https://github.com/sopak/auto-value-step-builder')
+                asNode().appendNode('description', 'AutoValue extension to create step builder pattern for AutoValue properties')
+                asNode().appendNode('developers').appendNode('developer').
+                        appendNode('id', 'sopak').parent().
+                        appendNode('name', 'Kamil Sopko')
+                asNode().appendNode('licenses').appendNode('license').
+                        appendNode('name', 'Apache License, Version 2.0').parent().
+                        appendNode('url', 'http://www.apache.org/licenses/LICENSE-2.0.html')
+                asNode().appendNode('scm').appendNode('url', 'https://github.com/sopak/auto-value-step-builder.git')
+            }
+        }
+    }
 }
