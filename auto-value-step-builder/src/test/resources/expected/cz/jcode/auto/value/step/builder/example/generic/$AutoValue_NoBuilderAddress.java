@@ -6,22 +6,22 @@ import javax.annotation.Generated;
 import javax.annotation.Nullable;
 
 @Generated("com.google.auto.value.processor.AutoValueProcessor")
- abstract class $AutoValue_NoBuilderAddress<T1> extends NoBuilderAddress<T1> {
+ abstract class $AutoValue_NoBuilderAddress<T> extends NoBuilderAddress<T> {
 
-  private final T1 title;
-  private final T1 street;
-  private final ImmutableList<T1> streetParts;
-  private final T1 city;
-  private final T1 postcode;
-  private final T1 countryCode;
+  private final T title;
+  private final T street;
+  private final ImmutableList<T> streetParts;
+  private final T city;
+  private final T postcode;
+  private final T countryCode;
 
   $AutoValue_NoBuilderAddress(
-      T1 title,
-      T1 street,
-      @Nullable ImmutableList<T1> streetParts,
-      T1 city,
-      T1 postcode,
-      T1 countryCode) {
+      T title,
+      T street,
+      @Nullable ImmutableList<T> streetParts,
+      T city,
+      T postcode,
+      T countryCode) {
     if (title == null) {
       throw new NullPointerException("Null title");
     }
@@ -46,33 +46,33 @@ import javax.annotation.Nullable;
   }
 
   @Override
-  public T1 title() {
+  public T title() {
     return title;
   }
 
   @Override
-  public T1 street() {
+  public T street() {
     return street;
   }
 
   @Nullable
   @Override
-  public ImmutableList<T1> streetParts() {
+  public ImmutableList<T> streetParts() {
     return streetParts;
   }
 
   @Override
-  public T1 city() {
+  public T city() {
     return city;
   }
 
   @Override
-  public T1 postcode() {
+  public T postcode() {
     return postcode;
   }
 
   @Override
-  public T1 countryCode() {
+  public T countryCode() {
     return countryCode;
   }
 

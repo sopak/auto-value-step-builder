@@ -162,7 +162,7 @@ public class SimpleTest {
 
             @Override
             synchronized public Integer get() {
-                return id++;
+                return this.id++;
             }
         };
 

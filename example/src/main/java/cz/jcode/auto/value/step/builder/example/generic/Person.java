@@ -24,49 +24,49 @@ import java.util.Date;
 
 @AutoValue
 @AutoValueStepBuilder
-public abstract class Person<T1, T2, T3> {
+public abstract class Person<T, H, W> {
     public abstract Integer id();
 
-    public abstract ImmutableList<T1> names();
+    public abstract ImmutableList<T> names();
 
-    public abstract ImmutableList<T1> phones();
+    public abstract ImmutableList<T> phones();
 
-    public abstract T2 homeAddress();
+    public abstract H homeAddress();
 
     @Nullable
-    public abstract T3 workAddress();
+    public abstract W workAddress();
 
     @Nullable
     public abstract Date birthday();
 
-    public static <T1, T2, T3> AutoValue_Person.IdStep<T1, T2, T3> step() {
-        return AutoValue_Person.<T1, T2, T3>step();
+    public static <T, H, W> AutoValue_Person.IdStep<T, H, W> step() {
+        return AutoValue_Person.<T, H, W>step();
     }
 
-    public static <T1, T2, T3> AutoValue_Person.IdLazyStep<T1, T2, T3> lazyStep() {
-        return AutoValue_Person.<T1, T2, T3>lazyStep();
+    public static <T, H, W> AutoValue_Person.IdLazyStep<T, H, W> lazyStep() {
+        return AutoValue_Person.<T, H, W>lazyStep();
     }
 
-    public static <T1, T2, T3> Builder<T1, T2, T3> builder() {
-        return new AutoValue_Person.Builder<T1, T2, T3>();
+    public static <T, H, W> Builder<T, H, W> builder() {
+        return new AutoValue_Person.Builder<T, H, W>();
     }
 
-    public abstract Builder<T1, T2, T3> toBuilder();
+    public abstract Builder<T, H, W> toBuilder();
 
     @AutoValue.Builder
-    public abstract static class Builder<T1, T2, T3> {
-        public abstract Builder<T1, T2, T3> id(Integer id);
+    public abstract static class Builder<T, H, W> {
+        public abstract Builder<T, H, W> id(Integer id);
 
-        public abstract Builder<T1, T2, T3> names(ImmutableList<T1> names);
+        public abstract Builder<T, H, W> names(ImmutableList<T> names);
 
-        public abstract Builder<T1, T2, T3> phones(ImmutableList<T1> phones);
+        public abstract Builder<T, H, W> phones(ImmutableList<T> phones);
 
-        public abstract Builder<T1, T2, T3> homeAddress(T2 homeAddress);
+        public abstract Builder<T, H, W> homeAddress(H homeAddress);
 
-        public abstract Builder<T1, T2, T3> workAddress(T3 workAddress);
+        public abstract Builder<T, H, W> workAddress(W workAddress);
 
-        public abstract Builder<T1, T2, T3> birthday(Date birthday);
+        public abstract Builder<T, H, W> birthday(Date birthday);
 
-        public abstract Person<T1, T2, T3> build();
+        public abstract Person<T, H, W> build();
     }
 }

@@ -23,25 +23,25 @@ import javax.annotation.Nullable;
 
 @AutoValue
 @AutoValueStepBuilder
-public abstract class NoBuilderAddress<T1> {
-    public abstract T1 title();
+public abstract class NoBuilderAddress<T> {
+    public abstract T title();
 
-    public abstract T1 street();
+    public abstract T street();
 
     @Nullable
-    public abstract ImmutableList<T1> streetParts();
+    public abstract ImmutableList<T> streetParts();
 
-    public abstract T1 city();
+    public abstract T city();
 
-    public abstract T1 postcode();
+    public abstract T postcode();
 
-    public abstract T1 countryCode();
+    public abstract T countryCode();
 
-    public static <T1> AutoValue_NoBuilderAddress.TitleStep<T1> step() {
-        return AutoValue_NoBuilderAddress.<T1>step();
+    public static <T> AutoValue_NoBuilderAddress.TitleStep<T> step() {
+        return AutoValue_NoBuilderAddress.<T>step();
     }
 
-    public static <T1> AutoValue_NoBuilderAddress.TitleLazyStep<T1> lazyStep() {
-        return AutoValue_NoBuilderAddress.<T1>lazyStep();
+    public static <T> AutoValue_NoBuilderAddress.TitleLazyStep<T> lazyStep() {
+        return AutoValue_NoBuilderAddress.<T>lazyStep();
     }
 }

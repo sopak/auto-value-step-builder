@@ -145,7 +145,7 @@ class GenericTest {
             private var id: Int = 0
 
             @Synchronized override fun get(): Int {
-                return id++
+                return this.id++
             }
         }
 

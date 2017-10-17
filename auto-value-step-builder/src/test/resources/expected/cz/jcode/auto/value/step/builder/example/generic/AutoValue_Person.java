@@ -6,14 +6,14 @@ import java.util.Date;
 import javax.annotation.Generated;
 
 @Generated("cz.jcode.auto.value.step.builder.AutoValueStepBuilderExtension")
-public final class AutoValue_Person<T1, T2, T3> extends $AutoValue_Person<T1, T2, T3> {
+public final class AutoValue_Person<T, H, W> extends $AutoValue_Person<T, H, W> {
 
     AutoValue_Person(
              java.lang.Integer id,
-             com.google.common.collect.ImmutableList<T1> names,
-             com.google.common.collect.ImmutableList<T1> phones,
-             T2 homeAddress,
-            @javax.annotation.Nullable T3 workAddress,
+             com.google.common.collect.ImmutableList<T> names,
+             com.google.common.collect.ImmutableList<T> phones,
+             H homeAddress,
+            @javax.annotation.Nullable W workAddress,
             @javax.annotation.Nullable java.util.Date birthday
         ){
         super(
@@ -26,95 +26,95 @@ public final class AutoValue_Person<T1, T2, T3> extends $AutoValue_Person<T1, T2
         );
     }
 
-    public interface BuildStep<T1, T2, T3> extends java.util.function.Supplier<cz.jcode.auto.value.step.builder.example.generic.Person<T1,T2,T3>>
+    public interface BuildStep<T, H, W> extends java.util.function.Supplier<cz.jcode.auto.value.step.builder.example.generic.Person<T,H,W>>
     {
-        cz.jcode.auto.value.step.builder.example.generic.Person<T1,T2,T3> build();
+        cz.jcode.auto.value.step.builder.example.generic.Person<T,H,W> build();
     }
 
-    public interface BuilderStep<T1, T2, T3> {
-        OptionalStep<T1, T2, T3> optional();
+    public interface BuilderStep<T, H, W> {
+        OptionalStep<T, H, W> optional();
     }
 
-    public interface OptionalStep<T1, T2, T3> extends BuildStep<T1, T2, T3>
+    public interface OptionalStep<T, H, W> extends BuildStep<T, H, W>
     {
-        OptionalStep<T1, T2, T3> workAddress(T3 workAddress);
-        OptionalStep<T1, T2, T3> birthday(java.util.Date birthday);
+        OptionalStep<T, H, W> workAddress(W workAddress);
+        OptionalStep<T, H, W> birthday(java.util.Date birthday);
     }
 
-    public interface BuilderLazyStep<T1, T2, T3> {
-        OptionalLazyStep<T1, T2, T3> optional();
+    public interface BuilderLazyStep<T, H, W> {
+        OptionalLazyStep<T, H, W> optional();
     }
 
-    public interface OptionalLazyStep<T1, T2, T3> extends BuildStep<T1, T2, T3>
+    public interface OptionalLazyStep<T, H, W> extends BuildStep<T, H, W>
     {
-        OptionalLazyStep<T1, T2, T3> workAddress(java.util.function.Supplier<T3> workAddressSupplier);
-        OptionalLazyStep<T1, T2, T3> workAddress(T3 workAddress);
-        OptionalLazyStep<T1, T2, T3> birthday(java.util.function.Supplier<java.util.Date> birthdaySupplier);
-        OptionalLazyStep<T1, T2, T3> birthday(java.util.Date birthday);
+        OptionalLazyStep<T, H, W> workAddress(java.util.function.Supplier<W> workAddressSupplier);
+        OptionalLazyStep<T, H, W> workAddress(W workAddress);
+        OptionalLazyStep<T, H, W> birthday(java.util.function.Supplier<java.util.Date> birthdaySupplier);
+        OptionalLazyStep<T, H, W> birthday(java.util.Date birthday);
     }
 
-    public interface IdStep<T1, T2, T3>
+    public interface IdStep<T, H, W>
     {
-        NamesStep<T1, T2, T3> id(java.lang.Integer id);
+        NamesStep<T, H, W> id(java.lang.Integer id);
     }
 
-    public interface IdLazyStep<T1, T2, T3>
+    public interface IdLazyStep<T, H, W>
     {
-        NamesLazyStep<T1, T2, T3> id(java.util.function.Supplier<java.lang.Integer> idSupplier);
-        NamesLazyStep<T1, T2, T3> id(java.lang.Integer id);
+        NamesLazyStep<T, H, W> id(java.util.function.Supplier<java.lang.Integer> idSupplier);
+        NamesLazyStep<T, H, W> id(java.lang.Integer id);
     }
 
-    public interface NamesStep<T1, T2, T3>
+    public interface NamesStep<T, H, W>
     {
-        PhonesStep<T1, T2, T3> names(com.google.common.collect.ImmutableList<T1> names);
+        PhonesStep<T, H, W> names(com.google.common.collect.ImmutableList<T> names);
     }
 
-    public interface NamesLazyStep<T1, T2, T3>
+    public interface NamesLazyStep<T, H, W>
     {
-        PhonesLazyStep<T1, T2, T3> names(java.util.function.Supplier<com.google.common.collect.ImmutableList<T1>> namesSupplier);
-        PhonesLazyStep<T1, T2, T3> names(com.google.common.collect.ImmutableList<T1> names);
+        PhonesLazyStep<T, H, W> names(java.util.function.Supplier<com.google.common.collect.ImmutableList<T>> namesSupplier);
+        PhonesLazyStep<T, H, W> names(com.google.common.collect.ImmutableList<T> names);
     }
 
-    public interface PhonesStep<T1, T2, T3>
+    public interface PhonesStep<T, H, W>
     {
-        HomeAddressStep<T1, T2, T3> phones(com.google.common.collect.ImmutableList<T1> phones);
+        HomeAddressStep<T, H, W> phones(com.google.common.collect.ImmutableList<T> phones);
     }
 
-    public interface PhonesLazyStep<T1, T2, T3>
+    public interface PhonesLazyStep<T, H, W>
     {
-        HomeAddressLazyStep<T1, T2, T3> phones(java.util.function.Supplier<com.google.common.collect.ImmutableList<T1>> phonesSupplier);
-        HomeAddressLazyStep<T1, T2, T3> phones(com.google.common.collect.ImmutableList<T1> phones);
+        HomeAddressLazyStep<T, H, W> phones(java.util.function.Supplier<com.google.common.collect.ImmutableList<T>> phonesSupplier);
+        HomeAddressLazyStep<T, H, W> phones(com.google.common.collect.ImmutableList<T> phones);
     }
 
-    public interface HomeAddressStep<T1, T2, T3>
+    public interface HomeAddressStep<T, H, W>
     {
-        BuilderStep<T1, T2, T3> homeAddress(T2 homeAddress);
+        BuilderStep<T, H, W> homeAddress(H homeAddress);
     }
 
-    public interface HomeAddressLazyStep<T1, T2, T3>
+    public interface HomeAddressLazyStep<T, H, W>
     {
-        BuilderLazyStep<T1, T2, T3> homeAddress(java.util.function.Supplier<T2> homeAddressSupplier);
-        BuilderLazyStep<T1, T2, T3> homeAddress(T2 homeAddress);
+        BuilderLazyStep<T, H, W> homeAddress(java.util.function.Supplier<H> homeAddressSupplier);
+        BuilderLazyStep<T, H, W> homeAddress(H homeAddress);
     }
 
-    public static <T1, T2, T3> IdStep<T1, T2, T3> step()
+    public static <T, H, W> IdStep<T, H, W> step()
     {
-        return StepBuilder.<T1, T2, T3>step();
+        return StepBuilder.<T, H, W>step();
     }
 
-    public static class StepBuilder<T1, T2, T3> implements IdStep<T1, T2, T3>, NamesStep<T1, T2, T3>, PhonesStep<T1, T2, T3>, HomeAddressStep<T1, T2, T3>, BuilderStep<T1, T2, T3>, OptionalStep<T1, T2, T3> {
+    public static class StepBuilder<T, H, W> implements IdStep<T, H, W>, NamesStep<T, H, W>, PhonesStep<T, H, W>, HomeAddressStep<T, H, W>, BuilderStep<T, H, W>, OptionalStep<T, H, W> {
         private java.lang.Integer id = null;
-        private com.google.common.collect.ImmutableList<T1> names = null;
-        private com.google.common.collect.ImmutableList<T1> phones = null;
-        private T2 homeAddress = null;
-        private T3 workAddress = null;
+        private com.google.common.collect.ImmutableList<T> names = null;
+        private com.google.common.collect.ImmutableList<T> phones = null;
+        private H homeAddress = null;
+        private W workAddress = null;
         private java.util.Date birthday = null;
-        public static <T1, T2, T3> IdStep<T1, T2, T3> step()
+        public static <T, H, W> IdStep<T, H, W> step()
         {
-            return new StepBuilder<T1, T2, T3>();
+            return new StepBuilder<T, H, W>();
         }
         @Override
-        public NamesStep<T1, T2, T3> id(java.lang.Integer id)
+        public NamesStep<T, H, W> id(java.lang.Integer id)
         {
             if (id == null) {
                 throw new NullPointerException("Null id");
@@ -123,7 +123,7 @@ public final class AutoValue_Person<T1, T2, T3> extends $AutoValue_Person<T1, T2
             return this;
         }
         @Override
-        public PhonesStep<T1, T2, T3> names(com.google.common.collect.ImmutableList<T1> names)
+        public PhonesStep<T, H, W> names(com.google.common.collect.ImmutableList<T> names)
         {
             if (names == null) {
                 throw new NullPointerException("Null names");
@@ -132,7 +132,7 @@ public final class AutoValue_Person<T1, T2, T3> extends $AutoValue_Person<T1, T2
             return this;
         }
         @Override
-        public HomeAddressStep<T1, T2, T3> phones(com.google.common.collect.ImmutableList<T1> phones)
+        public HomeAddressStep<T, H, W> phones(com.google.common.collect.ImmutableList<T> phones)
         {
             if (phones == null) {
                 throw new NullPointerException("Null phones");
@@ -141,7 +141,7 @@ public final class AutoValue_Person<T1, T2, T3> extends $AutoValue_Person<T1, T2
             return this;
         }
         @Override
-        public BuilderStep<T1, T2, T3> homeAddress(T2 homeAddress)
+        public BuilderStep<T, H, W> homeAddress(H homeAddress)
         {
             if (homeAddress == null) {
                 throw new NullPointerException("Null homeAddress");
@@ -150,26 +150,26 @@ public final class AutoValue_Person<T1, T2, T3> extends $AutoValue_Person<T1, T2
             return this;
         }
         @Override
-        public OptionalStep<T1, T2, T3> workAddress(T3 workAddress)
+        public OptionalStep<T, H, W> workAddress(W workAddress)
         {
             this.workAddress = workAddress;
             return this;
         }
         @Override
-        public OptionalStep<T1, T2, T3> birthday(java.util.Date birthday)
+        public OptionalStep<T, H, W> birthday(java.util.Date birthday)
         {
             this.birthday = birthday;
             return this;
         }
         @Override
-        public OptionalStep<T1, T2, T3> optional()
+        public OptionalStep<T, H, W> optional()
         {
             return this;
         }
         @Override
-        public cz.jcode.auto.value.step.builder.example.generic.Person<T1,T2,T3> build()
+        public cz.jcode.auto.value.step.builder.example.generic.Person<T,H,W> build()
         {
-            return cz.jcode.auto.value.step.builder.example.generic.Person.<T1, T2, T3>builder()
+            return cz.jcode.auto.value.step.builder.example.generic.Person.<T, H, W>builder()
                 .id(id)
                 .names(names)
                 .phones(phones)
@@ -179,35 +179,35 @@ public final class AutoValue_Person<T1, T2, T3> extends $AutoValue_Person<T1, T2
                 .build();
         }
         @Override
-        public cz.jcode.auto.value.step.builder.example.generic.Person<T1,T2,T3> get() {
+        public cz.jcode.auto.value.step.builder.example.generic.Person<T,H,W> get() {
             return build();
         }
     }
 
-    public static <T1, T2, T3> IdLazyStep<T1, T2, T3> lazyStep()
+    public static <T, H, W> IdLazyStep<T, H, W> lazyStep()
     {
-        return LazyStepBuilder.<T1, T2, T3>lazyStep();
+        return LazyStepBuilder.<T, H, W>lazyStep();
     }
 
-    public static class LazyStepBuilder<T1, T2, T3> implements IdLazyStep<T1, T2, T3>, NamesLazyStep<T1, T2, T3>, PhonesLazyStep<T1, T2, T3>, HomeAddressLazyStep<T1, T2, T3>, BuilderLazyStep<T1, T2, T3>, OptionalLazyStep<T1, T2, T3> {
+    public static class LazyStepBuilder<T, H, W> implements IdLazyStep<T, H, W>, NamesLazyStep<T, H, W>, PhonesLazyStep<T, H, W>, HomeAddressLazyStep<T, H, W>, BuilderLazyStep<T, H, W>, OptionalLazyStep<T, H, W> {
         private java.util.function.Supplier<java.lang.Integer> idSupplier = null;
         private java.lang.Integer id = null;
-        private java.util.function.Supplier<com.google.common.collect.ImmutableList<T1>> namesSupplier = null;
-        private com.google.common.collect.ImmutableList<T1> names = null;
-        private java.util.function.Supplier<com.google.common.collect.ImmutableList<T1>> phonesSupplier = null;
-        private com.google.common.collect.ImmutableList<T1> phones = null;
-        private java.util.function.Supplier<T2> homeAddressSupplier = null;
-        private T2 homeAddress = null;
-        private java.util.function.Supplier<T3> workAddressSupplier = null;
-        private T3 workAddress = null;
+        private java.util.function.Supplier<com.google.common.collect.ImmutableList<T>> namesSupplier = null;
+        private com.google.common.collect.ImmutableList<T> names = null;
+        private java.util.function.Supplier<com.google.common.collect.ImmutableList<T>> phonesSupplier = null;
+        private com.google.common.collect.ImmutableList<T> phones = null;
+        private java.util.function.Supplier<H> homeAddressSupplier = null;
+        private H homeAddress = null;
+        private java.util.function.Supplier<W> workAddressSupplier = null;
+        private W workAddress = null;
         private java.util.function.Supplier<java.util.Date> birthdaySupplier = null;
         private java.util.Date birthday = null;
-        public static <T1, T2, T3> IdLazyStep<T1, T2, T3> lazyStep()
+        public static <T, H, W> IdLazyStep<T, H, W> lazyStep()
         {
-            return new LazyStepBuilder<T1, T2, T3>();
+            return new LazyStepBuilder<T, H, W>();
         }
         @Override
-        public NamesLazyStep<T1, T2, T3> id(java.util.function.Supplier<java.lang.Integer> idSupplier)
+        public NamesLazyStep<T, H, W> id(java.util.function.Supplier<java.lang.Integer> idSupplier)
         {
             if (idSupplier == null) {
                 throw new NullPointerException("Null idSupplier");
@@ -217,7 +217,7 @@ public final class AutoValue_Person<T1, T2, T3> extends $AutoValue_Person<T1, T2
             return this;
         }
         @Override
-        public NamesLazyStep<T1, T2, T3> id(java.lang.Integer id)
+        public NamesLazyStep<T, H, W> id(java.lang.Integer id)
         {
             if (id == null) {
                 throw new NullPointerException("Null id");
@@ -227,7 +227,7 @@ public final class AutoValue_Person<T1, T2, T3> extends $AutoValue_Person<T1, T2
             return this;
         }
         @Override
-        public PhonesLazyStep<T1, T2, T3> names(java.util.function.Supplier<com.google.common.collect.ImmutableList<T1>> namesSupplier)
+        public PhonesLazyStep<T, H, W> names(java.util.function.Supplier<com.google.common.collect.ImmutableList<T>> namesSupplier)
         {
             if (namesSupplier == null) {
                 throw new NullPointerException("Null namesSupplier");
@@ -237,7 +237,7 @@ public final class AutoValue_Person<T1, T2, T3> extends $AutoValue_Person<T1, T2
             return this;
         }
         @Override
-        public PhonesLazyStep<T1, T2, T3> names(com.google.common.collect.ImmutableList<T1> names)
+        public PhonesLazyStep<T, H, W> names(com.google.common.collect.ImmutableList<T> names)
         {
             if (names == null) {
                 throw new NullPointerException("Null names");
@@ -247,7 +247,7 @@ public final class AutoValue_Person<T1, T2, T3> extends $AutoValue_Person<T1, T2
             return this;
         }
         @Override
-        public HomeAddressLazyStep<T1, T2, T3> phones(java.util.function.Supplier<com.google.common.collect.ImmutableList<T1>> phonesSupplier)
+        public HomeAddressLazyStep<T, H, W> phones(java.util.function.Supplier<com.google.common.collect.ImmutableList<T>> phonesSupplier)
         {
             if (phonesSupplier == null) {
                 throw new NullPointerException("Null phonesSupplier");
@@ -257,7 +257,7 @@ public final class AutoValue_Person<T1, T2, T3> extends $AutoValue_Person<T1, T2
             return this;
         }
         @Override
-        public HomeAddressLazyStep<T1, T2, T3> phones(com.google.common.collect.ImmutableList<T1> phones)
+        public HomeAddressLazyStep<T, H, W> phones(com.google.common.collect.ImmutableList<T> phones)
         {
             if (phones == null) {
                 throw new NullPointerException("Null phones");
@@ -267,7 +267,7 @@ public final class AutoValue_Person<T1, T2, T3> extends $AutoValue_Person<T1, T2
             return this;
         }
         @Override
-        public BuilderLazyStep<T1, T2, T3> homeAddress(java.util.function.Supplier<T2> homeAddressSupplier)
+        public BuilderLazyStep<T, H, W> homeAddress(java.util.function.Supplier<H> homeAddressSupplier)
         {
             if (homeAddressSupplier == null) {
                 throw new NullPointerException("Null homeAddressSupplier");
@@ -277,7 +277,7 @@ public final class AutoValue_Person<T1, T2, T3> extends $AutoValue_Person<T1, T2
             return this;
         }
         @Override
-        public BuilderLazyStep<T1, T2, T3> homeAddress(T2 homeAddress)
+        public BuilderLazyStep<T, H, W> homeAddress(H homeAddress)
         {
             if (homeAddress == null) {
                 throw new NullPointerException("Null homeAddress");
@@ -287,40 +287,40 @@ public final class AutoValue_Person<T1, T2, T3> extends $AutoValue_Person<T1, T2
             return this;
         }
         @Override
-        public OptionalLazyStep<T1, T2, T3> workAddress(java.util.function.Supplier<T3> workAddressSupplier)
+        public OptionalLazyStep<T, H, W> workAddress(java.util.function.Supplier<W> workAddressSupplier)
         {
             this.workAddressSupplier = workAddressSupplier;
             return this;
         }
         @Override
-        public OptionalLazyStep<T1, T2, T3> workAddress(T3 workAddress)
+        public OptionalLazyStep<T, H, W> workAddress(W workAddress)
         {
             this.workAddressSupplier = null;
             this.workAddress = workAddress;
             return this;
         }
         @Override
-        public OptionalLazyStep<T1, T2, T3> birthday(java.util.function.Supplier<java.util.Date> birthdaySupplier)
+        public OptionalLazyStep<T, H, W> birthday(java.util.function.Supplier<java.util.Date> birthdaySupplier)
         {
             this.birthdaySupplier = birthdaySupplier;
             return this;
         }
         @Override
-        public OptionalLazyStep<T1, T2, T3> birthday(java.util.Date birthday)
+        public OptionalLazyStep<T, H, W> birthday(java.util.Date birthday)
         {
             this.birthdaySupplier = null;
             this.birthday = birthday;
             return this;
         }
         @Override
-        public OptionalLazyStep<T1, T2, T3> optional()
+        public OptionalLazyStep<T, H, W> optional()
         {
             return this;
         }
         @Override
-        public cz.jcode.auto.value.step.builder.example.generic.Person<T1,T2,T3> build()
+        public cz.jcode.auto.value.step.builder.example.generic.Person<T,H,W> build()
         {
-            return cz.jcode.auto.value.step.builder.example.generic.Person.<T1, T2, T3>builder()
+            return cz.jcode.auto.value.step.builder.example.generic.Person.<T, H, W>builder()
                 .id(null == id ? idSupplier.get() : id)
                 .names(null == names ? namesSupplier.get() : names)
                 .phones(null == phones ? phonesSupplier.get() : phones)
@@ -330,7 +330,7 @@ public final class AutoValue_Person<T1, T2, T3> extends $AutoValue_Person<T1, T2
                 .build();
         }
         @Override
-        public cz.jcode.auto.value.step.builder.example.generic.Person<T1,T2,T3> get() {
+        public cz.jcode.auto.value.step.builder.example.generic.Person<T,H,W> get() {
             return build();
         }
     }

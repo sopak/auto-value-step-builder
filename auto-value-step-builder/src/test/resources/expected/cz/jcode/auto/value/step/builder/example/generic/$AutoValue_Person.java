@@ -7,21 +7,21 @@ import javax.annotation.Generated;
 import javax.annotation.Nullable;
 
 @Generated("com.google.auto.value.processor.AutoValueProcessor")
- abstract class $AutoValue_Person<T1, T2, T3> extends Person<T1, T2, T3> {
+ abstract class $AutoValue_Person<T, H, W> extends Person<T, H, W> {
 
   private final Integer id;
-  private final ImmutableList<T1> names;
-  private final ImmutableList<T1> phones;
-  private final T2 homeAddress;
-  private final T3 workAddress;
+  private final ImmutableList<T> names;
+  private final ImmutableList<T> phones;
+  private final H homeAddress;
+  private final W workAddress;
   private final Date birthday;
 
   $AutoValue_Person(
       Integer id,
-      ImmutableList<T1> names,
-      ImmutableList<T1> phones,
-      T2 homeAddress,
-      @Nullable T3 workAddress,
+      ImmutableList<T> names,
+      ImmutableList<T> phones,
+      H homeAddress,
+      @Nullable W workAddress,
       @Nullable Date birthday) {
     if (id == null) {
       throw new NullPointerException("Null id");
@@ -49,23 +49,23 @@ import javax.annotation.Nullable;
   }
 
   @Override
-  public ImmutableList<T1> names() {
+  public ImmutableList<T> names() {
     return names;
   }
 
   @Override
-  public ImmutableList<T1> phones() {
+  public ImmutableList<T> phones() {
     return phones;
   }
 
   @Override
-  public T2 homeAddress() {
+  public H homeAddress() {
     return homeAddress;
   }
 
   @Nullable
   @Override
-  public T3 workAddress() {
+  public W workAddress() {
     return workAddress;
   }
 
@@ -123,20 +123,20 @@ import javax.annotation.Nullable;
   }
 
   @Override
-  public Person.Builder<T1, T2, T3> toBuilder() {
-    return new Builder<T1, T2, T3>(this);
+  public Person.Builder<T, H, W> toBuilder() {
+    return new Builder<T, H, W>(this);
   }
 
-  static final class Builder<T1, T2, T3> extends Person.Builder<T1, T2, T3> {
+  static final class Builder<T, H, W> extends Person.Builder<T, H, W> {
     private Integer id;
-    private ImmutableList<T1> names;
-    private ImmutableList<T1> phones;
-    private T2 homeAddress;
-    private T3 workAddress;
+    private ImmutableList<T> names;
+    private ImmutableList<T> phones;
+    private H homeAddress;
+    private W workAddress;
     private Date birthday;
     Builder() {
     }
-    private Builder(Person<T1, T2, T3> source) {
+    private Builder(Person<T, H, W> source) {
       this.id = source.id();
       this.names = source.names();
       this.phones = source.phones();
@@ -145,7 +145,7 @@ import javax.annotation.Nullable;
       this.birthday = source.birthday();
     }
     @Override
-    public Person.Builder<T1, T2, T3> id(Integer id) {
+    public Person.Builder<T, H, W> id(Integer id) {
       if (id == null) {
         throw new NullPointerException("Null id");
       }
@@ -153,7 +153,7 @@ import javax.annotation.Nullable;
       return this;
     }
     @Override
-    public Person.Builder<T1, T2, T3> names(ImmutableList<T1> names) {
+    public Person.Builder<T, H, W> names(ImmutableList<T> names) {
       if (names == null) {
         throw new NullPointerException("Null names");
       }
@@ -161,7 +161,7 @@ import javax.annotation.Nullable;
       return this;
     }
     @Override
-    public Person.Builder<T1, T2, T3> phones(ImmutableList<T1> phones) {
+    public Person.Builder<T, H, W> phones(ImmutableList<T> phones) {
       if (phones == null) {
         throw new NullPointerException("Null phones");
       }
@@ -169,7 +169,7 @@ import javax.annotation.Nullable;
       return this;
     }
     @Override
-    public Person.Builder<T1, T2, T3> homeAddress(T2 homeAddress) {
+    public Person.Builder<T, H, W> homeAddress(H homeAddress) {
       if (homeAddress == null) {
         throw new NullPointerException("Null homeAddress");
       }
@@ -177,17 +177,17 @@ import javax.annotation.Nullable;
       return this;
     }
     @Override
-    public Person.Builder<T1, T2, T3> workAddress(@Nullable T3 workAddress) {
+    public Person.Builder<T, H, W> workAddress(@Nullable W workAddress) {
       this.workAddress = workAddress;
       return this;
     }
     @Override
-    public Person.Builder<T1, T2, T3> birthday(@Nullable Date birthday) {
+    public Person.Builder<T, H, W> birthday(@Nullable Date birthday) {
       this.birthday = birthday;
       return this;
     }
     @Override
-    public Person<T1, T2, T3> build() {
+    public Person<T, H, W> build() {
       String missing = "";
       if (this.id == null) {
         missing += " id";
@@ -204,7 +204,7 @@ import javax.annotation.Nullable;
       if (!missing.isEmpty()) {
         throw new IllegalStateException("Missing required properties:" + missing);
       }
-      return new AutoValue_Person<T1, T2, T3>(
+      return new AutoValue_Person<T, H, W>(
           this.id,
           this.names,
           this.phones,

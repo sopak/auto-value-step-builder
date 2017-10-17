@@ -23,48 +23,48 @@ import javax.annotation.Nullable;
 
 @AutoValue
 @AutoValueStepBuilder
-public abstract class Address<T1> {
-    public abstract T1 title();
+public abstract class Address<T> {
+    public abstract T title();
 
-    public abstract T1 street();
+    public abstract T street();
 
     @Nullable
-    public abstract ImmutableList<T1> streetParts();
+    public abstract ImmutableList<T> streetParts();
 
-    public abstract T1 city();
+    public abstract T city();
 
-    public abstract T1 postcode();
+    public abstract T postcode();
 
-    public abstract T1 countryCode();
+    public abstract T countryCode();
 
-    public static <T1> AutoValue_Address.TitleStep<T1> step() {
-        return AutoValue_Address.<T1>step();
+    public static <T> AutoValue_Address.TitleStep<T> step() {
+        return AutoValue_Address.<T>step();
     }
 
-    public static <T1> AutoValue_Address.TitleLazyStep<T1> lazyStep() {
-        return AutoValue_Address.<T1>lazyStep();
+    public static <T> AutoValue_Address.TitleLazyStep<T> lazyStep() {
+        return AutoValue_Address.<T>lazyStep();
     }
 
-    public static <T1> Builder<T1> builder() {
-        return new AutoValue_Address.Builder<T1>();
+    public static <T> Builder<T> builder() {
+        return new AutoValue_Address.Builder<T>();
     }
 
-    public abstract Builder<T1> toBuilder();
+    public abstract Builder<T> toBuilder();
 
     @AutoValue.Builder
-    public abstract static class Builder<T1> {
-        public abstract Builder<T1> title(T1 title);
+    public abstract static class Builder<T> {
+        public abstract Builder<T> title(T title);
 
-        public abstract Builder<T1> street(T1 street);
+        public abstract Builder<T> street(T street);
 
-        public abstract Builder<T1> streetParts(ImmutableList<T1> streetParts);
+        public abstract Builder<T> streetParts(ImmutableList<T> streetParts);
 
-        public abstract Builder<T1> city(T1 city);
+        public abstract Builder<T> city(T city);
 
-        public abstract Builder<T1> postcode(T1 postcode);
+        public abstract Builder<T> postcode(T postcode);
 
-        public abstract Builder<T1> countryCode(T1 countryCode);
+        public abstract Builder<T> countryCode(T countryCode);
 
-        public abstract Address<T1> build();
+        public abstract Address<T> build();
     }
 }

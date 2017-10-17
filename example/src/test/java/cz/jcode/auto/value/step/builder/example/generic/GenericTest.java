@@ -152,7 +152,7 @@ public class GenericTest {
 
             @Override
             synchronized public Integer get() {
-                return id++;
+                return this.id++;
             }
         };
 

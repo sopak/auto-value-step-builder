@@ -6,22 +6,22 @@ import javax.annotation.Generated;
 import javax.annotation.Nullable;
 
 @Generated("com.google.auto.value.processor.AutoValueProcessor")
- abstract class $AutoValue_Address<T1> extends Address<T1> {
+ abstract class $AutoValue_Address<T> extends Address<T> {
 
-  private final T1 title;
-  private final T1 street;
-  private final ImmutableList<T1> streetParts;
-  private final T1 city;
-  private final T1 postcode;
-  private final T1 countryCode;
+  private final T title;
+  private final T street;
+  private final ImmutableList<T> streetParts;
+  private final T city;
+  private final T postcode;
+  private final T countryCode;
 
   $AutoValue_Address(
-      T1 title,
-      T1 street,
-      @Nullable ImmutableList<T1> streetParts,
-      T1 city,
-      T1 postcode,
-      T1 countryCode) {
+      T title,
+      T street,
+      @Nullable ImmutableList<T> streetParts,
+      T city,
+      T postcode,
+      T countryCode) {
     if (title == null) {
       throw new NullPointerException("Null title");
     }
@@ -46,33 +46,33 @@ import javax.annotation.Nullable;
   }
 
   @Override
-  public T1 title() {
+  public T title() {
     return title;
   }
 
   @Override
-  public T1 street() {
+  public T street() {
     return street;
   }
 
   @Nullable
   @Override
-  public ImmutableList<T1> streetParts() {
+  public ImmutableList<T> streetParts() {
     return streetParts;
   }
 
   @Override
-  public T1 city() {
+  public T city() {
     return city;
   }
 
   @Override
-  public T1 postcode() {
+  public T postcode() {
     return postcode;
   }
 
   @Override
-  public T1 countryCode() {
+  public T countryCode() {
     return countryCode;
   }
 
@@ -124,20 +124,20 @@ import javax.annotation.Nullable;
   }
 
   @Override
-  public Address.Builder<T1> toBuilder() {
-    return new Builder<T1>(this);
+  public Address.Builder<T> toBuilder() {
+    return new Builder<T>(this);
   }
 
-  static final class Builder<T1> extends Address.Builder<T1> {
-    private T1 title;
-    private T1 street;
-    private ImmutableList<T1> streetParts;
-    private T1 city;
-    private T1 postcode;
-    private T1 countryCode;
+  static final class Builder<T> extends Address.Builder<T> {
+    private T title;
+    private T street;
+    private ImmutableList<T> streetParts;
+    private T city;
+    private T postcode;
+    private T countryCode;
     Builder() {
     }
-    private Builder(Address<T1> source) {
+    private Builder(Address<T> source) {
       this.title = source.title();
       this.street = source.street();
       this.streetParts = source.streetParts();
@@ -146,7 +146,7 @@ import javax.annotation.Nullable;
       this.countryCode = source.countryCode();
     }
     @Override
-    public Address.Builder<T1> title(T1 title) {
+    public Address.Builder<T> title(T title) {
       if (title == null) {
         throw new NullPointerException("Null title");
       }
@@ -154,7 +154,7 @@ import javax.annotation.Nullable;
       return this;
     }
     @Override
-    public Address.Builder<T1> street(T1 street) {
+    public Address.Builder<T> street(T street) {
       if (street == null) {
         throw new NullPointerException("Null street");
       }
@@ -162,12 +162,12 @@ import javax.annotation.Nullable;
       return this;
     }
     @Override
-    public Address.Builder<T1> streetParts(@Nullable ImmutableList<T1> streetParts) {
+    public Address.Builder<T> streetParts(@Nullable ImmutableList<T> streetParts) {
       this.streetParts = streetParts;
       return this;
     }
     @Override
-    public Address.Builder<T1> city(T1 city) {
+    public Address.Builder<T> city(T city) {
       if (city == null) {
         throw new NullPointerException("Null city");
       }
@@ -175,7 +175,7 @@ import javax.annotation.Nullable;
       return this;
     }
     @Override
-    public Address.Builder<T1> postcode(T1 postcode) {
+    public Address.Builder<T> postcode(T postcode) {
       if (postcode == null) {
         throw new NullPointerException("Null postcode");
       }
@@ -183,7 +183,7 @@ import javax.annotation.Nullable;
       return this;
     }
     @Override
-    public Address.Builder<T1> countryCode(T1 countryCode) {
+    public Address.Builder<T> countryCode(T countryCode) {
       if (countryCode == null) {
         throw new NullPointerException("Null countryCode");
       }
@@ -191,7 +191,7 @@ import javax.annotation.Nullable;
       return this;
     }
     @Override
-    public Address<T1> build() {
+    public Address<T> build() {
       String missing = "";
       if (this.title == null) {
         missing += " title";
@@ -211,7 +211,7 @@ import javax.annotation.Nullable;
       if (!missing.isEmpty()) {
         throw new IllegalStateException("Missing required properties:" + missing);
       }
-      return new AutoValue_Address<T1>(
+      return new AutoValue_Address<T>(
           this.title,
           this.street,
           this.streetParts,

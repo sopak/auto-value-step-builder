@@ -84,20 +84,21 @@ public class Generator {
             vars.firstRequired = i;
         });
         first.ifPresent(i -> {
-            i.setAsFirst();
+            i.setAsLast();
+            vars.lastRequired = i;
+        });
+        last.ifPresent(i -> {
+            i.setAsLast();
             vars.lastRequired = i;
         });
 
         Property prev = null;
         for (Property property : vars.required) {
-            if (property.isFirst()) {
-
-            } else {
+            if (!property.isFirst()) {
                 property.setPrev(prev);
             }
             prev = property;
         }
-
 
         vars.optional = ImmutableList.copyOf(
                 vars.props
@@ -152,7 +153,6 @@ public class Generator {
     private TypeMirror getTypeMirror(Class<?> c) {
         return context.processingEnvironment().getElementUtils().getTypeElement(c.getName()).asType();
     }
-
 
     private Property getProperty(Map.Entry<String, ExecutableElement> entry) {
         return new Property(
@@ -228,7 +228,7 @@ public class Generator {
         }
 
         public void setAsLast() {
-            first = true;
+            last = true;
         }
 
         public boolean isFirst() {

@@ -152,7 +152,7 @@ public class InnerClassTest {
 
             @Override
             synchronized public Integer get() {
-                return id++;
+                return this.id++;
             }
         };
 

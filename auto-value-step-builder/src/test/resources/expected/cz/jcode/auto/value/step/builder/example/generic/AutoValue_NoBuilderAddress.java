@@ -5,15 +5,15 @@ import com.google.common.collect.ImmutableList;
 import javax.annotation.Generated;
 
 @Generated("cz.jcode.auto.value.step.builder.AutoValueStepBuilderExtension")
-public final class AutoValue_NoBuilderAddress<T1> extends $AutoValue_NoBuilderAddress<T1> {
+public final class AutoValue_NoBuilderAddress<T> extends $AutoValue_NoBuilderAddress<T> {
 
     AutoValue_NoBuilderAddress(
-             T1 title,
-             T1 street,
-            @javax.annotation.Nullable com.google.common.collect.ImmutableList<T1> streetParts,
-             T1 city,
-             T1 postcode,
-             T1 countryCode
+             T title,
+             T street,
+            @javax.annotation.Nullable com.google.common.collect.ImmutableList<T> streetParts,
+             T city,
+             T postcode,
+             T countryCode
         ){
         super(
             title,
@@ -25,103 +25,103 @@ public final class AutoValue_NoBuilderAddress<T1> extends $AutoValue_NoBuilderAd
         );
     }
 
-    public interface BuildStep<T1> extends java.util.function.Supplier<cz.jcode.auto.value.step.builder.example.generic.NoBuilderAddress<T1>>
+    public interface BuildStep<T> extends java.util.function.Supplier<cz.jcode.auto.value.step.builder.example.generic.NoBuilderAddress<T>>
     {
-        cz.jcode.auto.value.step.builder.example.generic.NoBuilderAddress<T1> build();
+        cz.jcode.auto.value.step.builder.example.generic.NoBuilderAddress<T> build();
     }
 
-    public interface BuilderStep<T1> {
-        OptionalStep<T1> optional();
+    public interface BuilderStep<T> {
+        OptionalStep<T> optional();
     }
 
-    public interface OptionalStep<T1> extends BuildStep<T1>
+    public interface OptionalStep<T> extends BuildStep<T>
     {
-        OptionalStep<T1> streetParts(com.google.common.collect.ImmutableList<T1> streetParts);
+        OptionalStep<T> streetParts(com.google.common.collect.ImmutableList<T> streetParts);
     }
 
-    public interface BuilderLazyStep<T1> {
-        OptionalLazyStep<T1> optional();
+    public interface BuilderLazyStep<T> {
+        OptionalLazyStep<T> optional();
     }
 
-    public interface OptionalLazyStep<T1> extends BuildStep<T1>
+    public interface OptionalLazyStep<T> extends BuildStep<T>
     {
-        OptionalLazyStep<T1> streetParts(java.util.function.Supplier<com.google.common.collect.ImmutableList<T1>> streetPartsSupplier);
-        OptionalLazyStep<T1> streetParts(com.google.common.collect.ImmutableList<T1> streetParts);
+        OptionalLazyStep<T> streetParts(java.util.function.Supplier<com.google.common.collect.ImmutableList<T>> streetPartsSupplier);
+        OptionalLazyStep<T> streetParts(com.google.common.collect.ImmutableList<T> streetParts);
     }
 
-    public interface TitleStep<T1>
+    public interface TitleStep<T>
     {
-        StreetStep<T1> title(T1 title);
+        StreetStep<T> title(T title);
     }
 
-    public interface TitleLazyStep<T1>
+    public interface TitleLazyStep<T>
     {
-        StreetLazyStep<T1> title(java.util.function.Supplier<T1> titleSupplier);
-        StreetLazyStep<T1> title(T1 title);
+        StreetLazyStep<T> title(java.util.function.Supplier<T> titleSupplier);
+        StreetLazyStep<T> title(T title);
     }
 
-    public interface StreetStep<T1>
+    public interface StreetStep<T>
     {
-        CityStep<T1> street(T1 street);
+        CityStep<T> street(T street);
     }
 
-    public interface StreetLazyStep<T1>
+    public interface StreetLazyStep<T>
     {
-        CityLazyStep<T1> street(java.util.function.Supplier<T1> streetSupplier);
-        CityLazyStep<T1> street(T1 street);
+        CityLazyStep<T> street(java.util.function.Supplier<T> streetSupplier);
+        CityLazyStep<T> street(T street);
     }
 
-    public interface CityStep<T1>
+    public interface CityStep<T>
     {
-        PostcodeStep<T1> city(T1 city);
+        PostcodeStep<T> city(T city);
     }
 
-    public interface CityLazyStep<T1>
+    public interface CityLazyStep<T>
     {
-        PostcodeLazyStep<T1> city(java.util.function.Supplier<T1> citySupplier);
-        PostcodeLazyStep<T1> city(T1 city);
+        PostcodeLazyStep<T> city(java.util.function.Supplier<T> citySupplier);
+        PostcodeLazyStep<T> city(T city);
     }
 
-    public interface PostcodeStep<T1>
+    public interface PostcodeStep<T>
     {
-        CountryCodeStep<T1> postcode(T1 postcode);
+        CountryCodeStep<T> postcode(T postcode);
     }
 
-    public interface PostcodeLazyStep<T1>
+    public interface PostcodeLazyStep<T>
     {
-        CountryCodeLazyStep<T1> postcode(java.util.function.Supplier<T1> postcodeSupplier);
-        CountryCodeLazyStep<T1> postcode(T1 postcode);
+        CountryCodeLazyStep<T> postcode(java.util.function.Supplier<T> postcodeSupplier);
+        CountryCodeLazyStep<T> postcode(T postcode);
     }
 
-    public interface CountryCodeStep<T1>
+    public interface CountryCodeStep<T>
     {
-        BuilderStep<T1> countryCode(T1 countryCode);
+        BuilderStep<T> countryCode(T countryCode);
     }
 
-    public interface CountryCodeLazyStep<T1>
+    public interface CountryCodeLazyStep<T>
     {
-        BuilderLazyStep<T1> countryCode(java.util.function.Supplier<T1> countryCodeSupplier);
-        BuilderLazyStep<T1> countryCode(T1 countryCode);
+        BuilderLazyStep<T> countryCode(java.util.function.Supplier<T> countryCodeSupplier);
+        BuilderLazyStep<T> countryCode(T countryCode);
     }
 
-    public static <T1> TitleStep<T1> step()
+    public static <T> TitleStep<T> step()
     {
-        return StepBuilder.<T1>step();
+        return StepBuilder.<T>step();
     }
 
-    public static class StepBuilder<T1> implements TitleStep<T1>, StreetStep<T1>, CityStep<T1>, PostcodeStep<T1>, CountryCodeStep<T1>, BuilderStep<T1>, OptionalStep<T1> {
-        private T1 title = null;
-        private T1 street = null;
-        private com.google.common.collect.ImmutableList<T1> streetParts = null;
-        private T1 city = null;
-        private T1 postcode = null;
-        private T1 countryCode = null;
-        public static <T1> TitleStep<T1> step()
+    public static class StepBuilder<T> implements TitleStep<T>, StreetStep<T>, CityStep<T>, PostcodeStep<T>, CountryCodeStep<T>, BuilderStep<T>, OptionalStep<T> {
+        private T title = null;
+        private T street = null;
+        private com.google.common.collect.ImmutableList<T> streetParts = null;
+        private T city = null;
+        private T postcode = null;
+        private T countryCode = null;
+        public static <T> TitleStep<T> step()
         {
-            return new StepBuilder<T1>();
+            return new StepBuilder<T>();
         }
         @Override
-        public StreetStep<T1> title(T1 title)
+        public StreetStep<T> title(T title)
         {
             if (title == null) {
                 throw new NullPointerException("Null title");
@@ -130,7 +130,7 @@ public final class AutoValue_NoBuilderAddress<T1> extends $AutoValue_NoBuilderAd
             return this;
         }
         @Override
-        public CityStep<T1> street(T1 street)
+        public CityStep<T> street(T street)
         {
             if (street == null) {
                 throw new NullPointerException("Null street");
@@ -139,7 +139,7 @@ public final class AutoValue_NoBuilderAddress<T1> extends $AutoValue_NoBuilderAd
             return this;
         }
         @Override
-        public PostcodeStep<T1> city(T1 city)
+        public PostcodeStep<T> city(T city)
         {
             if (city == null) {
                 throw new NullPointerException("Null city");
@@ -148,7 +148,7 @@ public final class AutoValue_NoBuilderAddress<T1> extends $AutoValue_NoBuilderAd
             return this;
         }
         @Override
-        public CountryCodeStep<T1> postcode(T1 postcode)
+        public CountryCodeStep<T> postcode(T postcode)
         {
             if (postcode == null) {
                 throw new NullPointerException("Null postcode");
@@ -157,7 +157,7 @@ public final class AutoValue_NoBuilderAddress<T1> extends $AutoValue_NoBuilderAd
             return this;
         }
         @Override
-        public BuilderStep<T1> countryCode(T1 countryCode)
+        public BuilderStep<T> countryCode(T countryCode)
         {
             if (countryCode == null) {
                 throw new NullPointerException("Null countryCode");
@@ -166,20 +166,20 @@ public final class AutoValue_NoBuilderAddress<T1> extends $AutoValue_NoBuilderAd
             return this;
         }
         @Override
-        public OptionalStep<T1> streetParts(com.google.common.collect.ImmutableList<T1> streetParts)
+        public OptionalStep<T> streetParts(com.google.common.collect.ImmutableList<T> streetParts)
         {
             this.streetParts = streetParts;
             return this;
         }
         @Override
-        public OptionalStep<T1> optional()
+        public OptionalStep<T> optional()
         {
             return this;
         }
         @Override
-        public cz.jcode.auto.value.step.builder.example.generic.NoBuilderAddress<T1> build()
+        public cz.jcode.auto.value.step.builder.example.generic.NoBuilderAddress<T> build()
         {
-            return new AutoValue_NoBuilderAddress<T1>(
+            return new AutoValue_NoBuilderAddress<T>(
                     title,
                     street,
                     streetParts,
@@ -189,35 +189,35 @@ public final class AutoValue_NoBuilderAddress<T1> extends $AutoValue_NoBuilderAd
                 );
         }
         @Override
-        public cz.jcode.auto.value.step.builder.example.generic.NoBuilderAddress<T1> get() {
+        public cz.jcode.auto.value.step.builder.example.generic.NoBuilderAddress<T> get() {
             return build();
         }
     }
 
-    public static <T1> TitleLazyStep<T1> lazyStep()
+    public static <T> TitleLazyStep<T> lazyStep()
     {
-        return LazyStepBuilder.<T1>lazyStep();
+        return LazyStepBuilder.<T>lazyStep();
     }
 
-    public static class LazyStepBuilder<T1> implements TitleLazyStep<T1>, StreetLazyStep<T1>, CityLazyStep<T1>, PostcodeLazyStep<T1>, CountryCodeLazyStep<T1>, BuilderLazyStep<T1>, OptionalLazyStep<T1> {
-        private java.util.function.Supplier<T1> titleSupplier = null;
-        private T1 title = null;
-        private java.util.function.Supplier<T1> streetSupplier = null;
-        private T1 street = null;
-        private java.util.function.Supplier<com.google.common.collect.ImmutableList<T1>> streetPartsSupplier = null;
-        private com.google.common.collect.ImmutableList<T1> streetParts = null;
-        private java.util.function.Supplier<T1> citySupplier = null;
-        private T1 city = null;
-        private java.util.function.Supplier<T1> postcodeSupplier = null;
-        private T1 postcode = null;
-        private java.util.function.Supplier<T1> countryCodeSupplier = null;
-        private T1 countryCode = null;
-        public static <T1> TitleLazyStep<T1> lazyStep()
+    public static class LazyStepBuilder<T> implements TitleLazyStep<T>, StreetLazyStep<T>, CityLazyStep<T>, PostcodeLazyStep<T>, CountryCodeLazyStep<T>, BuilderLazyStep<T>, OptionalLazyStep<T> {
+        private java.util.function.Supplier<T> titleSupplier = null;
+        private T title = null;
+        private java.util.function.Supplier<T> streetSupplier = null;
+        private T street = null;
+        private java.util.function.Supplier<com.google.common.collect.ImmutableList<T>> streetPartsSupplier = null;
+        private com.google.common.collect.ImmutableList<T> streetParts = null;
+        private java.util.function.Supplier<T> citySupplier = null;
+        private T city = null;
+        private java.util.function.Supplier<T> postcodeSupplier = null;
+        private T postcode = null;
+        private java.util.function.Supplier<T> countryCodeSupplier = null;
+        private T countryCode = null;
+        public static <T> TitleLazyStep<T> lazyStep()
         {
-            return new LazyStepBuilder<T1>();
+            return new LazyStepBuilder<T>();
         }
         @Override
-        public StreetLazyStep<T1> title(java.util.function.Supplier<T1> titleSupplier)
+        public StreetLazyStep<T> title(java.util.function.Supplier<T> titleSupplier)
         {
             if (titleSupplier == null) {
                 throw new NullPointerException("Null titleSupplier");
@@ -227,7 +227,7 @@ public final class AutoValue_NoBuilderAddress<T1> extends $AutoValue_NoBuilderAd
             return this;
         }
         @Override
-        public StreetLazyStep<T1> title(T1 title)
+        public StreetLazyStep<T> title(T title)
         {
             if (title == null) {
                 throw new NullPointerException("Null title");
@@ -237,7 +237,7 @@ public final class AutoValue_NoBuilderAddress<T1> extends $AutoValue_NoBuilderAd
             return this;
         }
         @Override
-        public CityLazyStep<T1> street(java.util.function.Supplier<T1> streetSupplier)
+        public CityLazyStep<T> street(java.util.function.Supplier<T> streetSupplier)
         {
             if (streetSupplier == null) {
                 throw new NullPointerException("Null streetSupplier");
@@ -247,7 +247,7 @@ public final class AutoValue_NoBuilderAddress<T1> extends $AutoValue_NoBuilderAd
             return this;
         }
         @Override
-        public CityLazyStep<T1> street(T1 street)
+        public CityLazyStep<T> street(T street)
         {
             if (street == null) {
                 throw new NullPointerException("Null street");
@@ -257,7 +257,7 @@ public final class AutoValue_NoBuilderAddress<T1> extends $AutoValue_NoBuilderAd
             return this;
         }
         @Override
-        public PostcodeLazyStep<T1> city(java.util.function.Supplier<T1> citySupplier)
+        public PostcodeLazyStep<T> city(java.util.function.Supplier<T> citySupplier)
         {
             if (citySupplier == null) {
                 throw new NullPointerException("Null citySupplier");
@@ -267,7 +267,7 @@ public final class AutoValue_NoBuilderAddress<T1> extends $AutoValue_NoBuilderAd
             return this;
         }
         @Override
-        public PostcodeLazyStep<T1> city(T1 city)
+        public PostcodeLazyStep<T> city(T city)
         {
             if (city == null) {
                 throw new NullPointerException("Null city");
@@ -277,7 +277,7 @@ public final class AutoValue_NoBuilderAddress<T1> extends $AutoValue_NoBuilderAd
             return this;
         }
         @Override
-        public CountryCodeLazyStep<T1> postcode(java.util.function.Supplier<T1> postcodeSupplier)
+        public CountryCodeLazyStep<T> postcode(java.util.function.Supplier<T> postcodeSupplier)
         {
             if (postcodeSupplier == null) {
                 throw new NullPointerException("Null postcodeSupplier");
@@ -287,7 +287,7 @@ public final class AutoValue_NoBuilderAddress<T1> extends $AutoValue_NoBuilderAd
             return this;
         }
         @Override
-        public CountryCodeLazyStep<T1> postcode(T1 postcode)
+        public CountryCodeLazyStep<T> postcode(T postcode)
         {
             if (postcode == null) {
                 throw new NullPointerException("Null postcode");
@@ -297,7 +297,7 @@ public final class AutoValue_NoBuilderAddress<T1> extends $AutoValue_NoBuilderAd
             return this;
         }
         @Override
-        public BuilderLazyStep<T1> countryCode(java.util.function.Supplier<T1> countryCodeSupplier)
+        public BuilderLazyStep<T> countryCode(java.util.function.Supplier<T> countryCodeSupplier)
         {
             if (countryCodeSupplier == null) {
                 throw new NullPointerException("Null countryCodeSupplier");
@@ -307,7 +307,7 @@ public final class AutoValue_NoBuilderAddress<T1> extends $AutoValue_NoBuilderAd
             return this;
         }
         @Override
-        public BuilderLazyStep<T1> countryCode(T1 countryCode)
+        public BuilderLazyStep<T> countryCode(T countryCode)
         {
             if (countryCode == null) {
                 throw new NullPointerException("Null countryCode");
@@ -317,27 +317,27 @@ public final class AutoValue_NoBuilderAddress<T1> extends $AutoValue_NoBuilderAd
             return this;
         }
         @Override
-        public OptionalLazyStep<T1> streetParts(java.util.function.Supplier<com.google.common.collect.ImmutableList<T1>> streetPartsSupplier)
+        public OptionalLazyStep<T> streetParts(java.util.function.Supplier<com.google.common.collect.ImmutableList<T>> streetPartsSupplier)
         {
             this.streetPartsSupplier = streetPartsSupplier;
             return this;
         }
         @Override
-        public OptionalLazyStep<T1> streetParts(com.google.common.collect.ImmutableList<T1> streetParts)
+        public OptionalLazyStep<T> streetParts(com.google.common.collect.ImmutableList<T> streetParts)
         {
             this.streetPartsSupplier = null;
             this.streetParts = streetParts;
             return this;
         }
         @Override
-        public OptionalLazyStep<T1> optional()
+        public OptionalLazyStep<T> optional()
         {
             return this;
         }
         @Override
-        public cz.jcode.auto.value.step.builder.example.generic.NoBuilderAddress<T1> build()
+        public cz.jcode.auto.value.step.builder.example.generic.NoBuilderAddress<T> build()
         {
-            return new AutoValue_NoBuilderAddress<T1>(
+            return new AutoValue_NoBuilderAddress<T>(
                     null == title ? (null == titleSupplier ? null : titleSupplier.get()) : title,
                     null == street ? (null == streetSupplier ? null : streetSupplier.get()) : street,
                     null == streetParts ? (null == streetPartsSupplier ? null : streetPartsSupplier.get()) : streetParts,
@@ -347,7 +347,7 @@ public final class AutoValue_NoBuilderAddress<T1> extends $AutoValue_NoBuilderAd
                 );
         }
         @Override
-        public cz.jcode.auto.value.step.builder.example.generic.NoBuilderAddress<T1> get() {
+        public cz.jcode.auto.value.step.builder.example.generic.NoBuilderAddress<T> get() {
             return build();
         }
     }

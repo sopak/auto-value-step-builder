@@ -22,11 +22,6 @@ import com.google.auto.value.extension.AutoValueExtension;
 public class AutoValueStepBuilderExtension extends AutoValueExtension
 {
 
-    public AutoValueStepBuilderExtension()
-    {
-        super();
-    }
-
     @Override
     public boolean applicable(Context context)
     {

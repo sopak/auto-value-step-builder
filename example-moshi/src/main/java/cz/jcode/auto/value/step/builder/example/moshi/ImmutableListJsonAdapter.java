@@ -25,7 +25,7 @@ import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.Set;
 
-abstract class ImmutableListJsonAdapter<C extends ImmutableList<T>, T> extends JsonAdapter<C> {
+public abstract class ImmutableListJsonAdapter<C extends ImmutableList<T>, T> extends JsonAdapter<C> {
     public static final JsonAdapter.Factory FACTORY = new JsonAdapter.Factory() {
         @Override
         public @Nullable
@@ -46,19 +46,18 @@ abstract class ImmutableListJsonAdapter<C extends ImmutableList<T>, T> extends J
         this.elementAdapter = elementAdapter;
     }
 
-    static <T> JsonAdapter<ImmutableList<T>> newArrayListAdapter(Type type, Moshi moshi) {
+    private static <T> JsonAdapter<ImmutableList<T>> newArrayListAdapter(Type type, Moshi moshi) {
         Type elementType = Types.collectionElementType(type, Collection.class);
         JsonAdapter<T> elementAdapter = moshi.adapter(elementType);
         return new ImmutableListJsonAdapter<ImmutableList<T>, T>(elementAdapter) {
             @Override
-            ImmutableList.Builder<T> newBuilder() {
+            protected ImmutableList.Builder<T> newBuilder() {
                 return ImmutableList.<T>builder();
             }
         };
     }
 
-
-    abstract C.Builder<T> newBuilder();
+    protected abstract C.Builder<T> newBuilder();
 
     @SuppressWarnings("unchecked")
     @Override
