@@ -1,6 +1,5 @@
 apply plugin: 'java'
 apply plugin: 'net.ltgt.apt'
-apply plugin: 'idea'
 
 sourceCompatibility = vars.sourceCompatibility
 targetCompatibility = vars.sourceCompatibility
@@ -11,6 +10,7 @@ dependencies {
 
     compile libs.guava
 
+    compile project(':auto-value-step-builder-annotations')
     compileOnly project(':auto-value-step-builder')
     apt project(':auto-value-step-builder')
 
