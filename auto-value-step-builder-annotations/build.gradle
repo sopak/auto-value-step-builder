@@ -1,44 +1,75 @@
-apply plugin: 'java'
-apply plugin: 'maven-publish'
+plugins{
+    id 'java-library'
+    id 'maven'
+    id 'signing'
+}
 
 sourceCompatibility = vars.sourceCompatibility
 targetCompatibility = vars.sourceCompatibility
 
-task sourcesJar(type: Jar) {
-    from sourceSets.main.allSource
-    classifier = 'sources'
-}
 
-task javadocJar(type: Jar, dependsOn: javadoc) {
+task javadocJar(type: Jar) {
     classifier = 'javadoc'
-    from javadoc.destinationDir
+    from javadoc
 }
 
-publish.dependsOn(build)
-//publish.dependsOn(javadocJar)
-publish.dependsOn(sourcesJar)
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
 
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId GROUP
-            artifactId 'auto-value-step-builder'
-            version VERSION_NAME
-            from components.java
-            artifact sourcesJar
-            //artifact javadocJar
-            pom.withXml {
-                asNode().appendNode('name', 'Auto Value Step Builder')
-                asNode().appendNode('url', 'https://github.com/sopak/auto-value-step-builder')
-                asNode().appendNode('description', 'AutoValue extension to create step builder pattern for AutoValue properties')
-                asNode().appendNode('developers').appendNode('developer').
-                        appendNode('id', 'sopak').parent().
-                        appendNode('name', 'Kamil Sopko')
-                asNode().appendNode('licenses').appendNode('license').
-                        appendNode('name', 'Apache License, Version 2.0').parent().
-                        appendNode('url', 'http://www.apache.org/licenses/LICENSE-2.0.html')
-                asNode().appendNode('scm').appendNode('url', 'https://github.com/sopak/auto-value-step-builder.git')
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+signing {
+    required { isReleaseVersion && gradle.taskGraph.hasTask("uploadArchives") }
+    sign configurations.archives
+}
+
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: System.env.ossrhUsername, password: System.env.ossrhPassword)
+            }
+
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: System.env.ossrhUsername, password: System.env.ossrhPassword)
+            }
+
+            pom.project {
+                name 'Auto Value Step Builder Annotations'
+                packaging 'jar'
+
+                description 'AutoValue extension to create step builder pattern for AutoValue properties'
+                url 'https://github.com/sopak/auto-value-step-builder'
+
+                scm {
+                    connection 'scm:git:https://github.com/sopak/auto-value-step-builder.git'
+                    developerConnection 'scm:git:https://github.com/sopak/auto-value-step-builder.git'
+                    url 'https://github.com/sopak/auto-value-step-builder'
+                }
+
+                licenses {
+                    license {
+                        name 'The Apache License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'sopak'
+                        name 'Kamil Sopko'
+                        email 'kamil.sopko@jcode.cz'
+                    }
+                }
             }
         }
     }
 }
+

@@ -8,8 +8,8 @@ buildscript {
 }
 plugins {
     id "net.ltgt.apt" version "0.12"
+    id 'net.researchgate.release' version '2.6.0'
 }
-apply plugin: 'org.junit.platform.gradle.plugin'
 
 allprojects {
 
@@ -20,27 +20,12 @@ allprojects {
     apply plugin: 'idea'
     apply plugin: 'org.junit.platform.gradle.plugin'
 
-    dependencies{
-        testCompile(
-                'org.junit.jupiter:junit-jupiter-api:5.0.1'
-        )
-        testRuntime(
-                'org.junit.jupiter:junit-jupiter-engine:5.0.1'
-        )
-    }
-
-    idea.module {
-
-        inheritOutputDirs = false
-
-        sourceDirs += file('build/generated/source/apt/main')
-
-        outputDir file('build/classes/main')
-        testOutputDir file('build/classes/test')
-
-    }
+    group GROUP
+    version VERSION_NAME
 
     ext {
+
+        isReleaseVersion = !version.endsWith("SNAPSHOT")
 
         vars = {
             sourceCompatibility = JavaVersion.VERSION_1_8
@@ -51,6 +36,8 @@ allprojects {
                 guava               : 'com.google.guava:guava:23.0',
                 junit5              : 'org.junit.jupiter:junit-jupiter-api:5.0.1',
                 junit5Params        : 'org.junit.jupiter:junit-jupiter-params:5.0.1',
+                junit5Api           : 'org.junit.jupiter:junit-jupiter-api:5.0.1',
+                junit5Engine        : 'org.junit.jupiter:junit-jupiter-engine:5.0.1',
                 moshi               : 'com.squareup.moshi:moshi:1.5.0',
                 moshiAdapters       : 'com.squareup.moshi:moshi-adapters:1.5.0',
                 autoValueMoshi      : 'com.ryanharter.auto.value:auto-value-moshi:0.4.4',
@@ -71,6 +58,21 @@ allprojects {
         ]
     }
 
+    dependencies {
+        testCompile libs.junit5Api
+        testRuntime libs.junit5Engine
+    }
+
+    idea.module {
+
+        inheritOutputDirs = false
+
+        sourceDirs += file('build/generated/source/apt/main')
+
+        outputDir file('build/classes/main')
+        testOutputDir file('build/classes/test')
+
+    }
 }
 
 idea.project {
@@ -119,3 +121,18 @@ task wrapper(type: Wrapper) {
     gradleVersion = '4.0'
     distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
 }
+
+
+release {
+    preCommitText = ''
+    preTagCommitMessage = '[Release] - release'
+    tagCommitMessage = '[Release] - tag'
+    newVersionCommitMessage = '[Release] - new version'
+    tagTemplate = '${version}'
+    scmAdapters = [net.researchgate.release.GitAdapter]
+    git {
+        requireBranch = /master|\d\.\d\.x/
+        pushToRemote = 'origin'
+    }
+}
+afterReleaseBuild.dependsOn uploadArchives
