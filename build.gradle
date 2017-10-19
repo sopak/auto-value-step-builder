@@ -132,4 +132,4 @@ release {
         pushToRemote = 'origin'
     }
 }
-afterReleaseBuild.dependsOn uploadArchives
+afterReleaseBuild.dependsOn project.getSubprojects().collect({it.getTasks().getByName("uploadArchives")})
