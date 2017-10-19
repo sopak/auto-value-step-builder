@@ -16,16 +16,12 @@ plugins {
 }
 
 repositories {
-
-    maven{
-        url "https://oss.sonatype.org/content/repositories/snapshots/"
-    }
     mavenCentral()
 }
 
 dependencies {
-    compileOnly "cz.jcode.auto.value:auto-value-step-builder-annotations:0.0.1-SNAPSHOT"
-    compileOnly "cz.jcode.auto.value:auto-value-step-builder:0.0.1-SNAPSHOT"
+    compileOnly "cz.jcode.auto.value:auto-value-step-builder-annotations:0.0.1"
+    compileOnly "cz.jcode.auto.value:auto-value-step-builder:0.0.1"
 }
 
 idea.module {
