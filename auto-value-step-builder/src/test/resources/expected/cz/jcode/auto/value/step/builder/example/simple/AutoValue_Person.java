@@ -103,12 +103,12 @@ public final class AutoValue_Person extends $AutoValue_Person {
     }
 
     public static class StepBuilder implements IdStep, NamesStep, PhonesStep, HomeAddressStep, BuilderStep, OptionalStep {
-        private java.lang.Integer id = null;
-        private com.google.common.collect.ImmutableList<java.lang.String> names = null;
-        private com.google.common.collect.ImmutableList<java.lang.String> phones = null;
-        private cz.jcode.auto.value.step.builder.example.simple.Address homeAddress = null;
-        private cz.jcode.auto.value.step.builder.example.simple.NoBuilderAddress workAddress = null;
-        private java.util.Date birthday = null;
+        private java.lang.Integer id;
+        private com.google.common.collect.ImmutableList<java.lang.String> names;
+        private com.google.common.collect.ImmutableList<java.lang.String> phones;
+        private cz.jcode.auto.value.step.builder.example.simple.Address homeAddress;
+        private cz.jcode.auto.value.step.builder.example.simple.NoBuilderAddress workAddress;
+        private java.util.Date birthday;
         public static IdStep step()
         {
             return new StepBuilder();
@@ -190,18 +190,18 @@ public final class AutoValue_Person extends $AutoValue_Person {
     }
 
     public static class LazyStepBuilder implements IdLazyStep, NamesLazyStep, PhonesLazyStep, HomeAddressLazyStep, BuilderLazyStep, OptionalLazyStep {
-        private java.util.function.Supplier<java.lang.Integer> idSupplier = null;
-        private java.lang.Integer id = null;
-        private java.util.function.Supplier<com.google.common.collect.ImmutableList<java.lang.String>> namesSupplier = null;
-        private com.google.common.collect.ImmutableList<java.lang.String> names = null;
-        private java.util.function.Supplier<com.google.common.collect.ImmutableList<java.lang.String>> phonesSupplier = null;
-        private com.google.common.collect.ImmutableList<java.lang.String> phones = null;
-        private java.util.function.Supplier<cz.jcode.auto.value.step.builder.example.simple.Address> homeAddressSupplier = null;
-        private cz.jcode.auto.value.step.builder.example.simple.Address homeAddress = null;
-        private java.util.function.Supplier<cz.jcode.auto.value.step.builder.example.simple.NoBuilderAddress> workAddressSupplier = null;
-        private cz.jcode.auto.value.step.builder.example.simple.NoBuilderAddress workAddress = null;
-        private java.util.function.Supplier<java.util.Date> birthdaySupplier = null;
-        private java.util.Date birthday = null;
+        private java.util.function.Supplier<java.lang.Integer> idSupplier;
+        private java.lang.Integer id;
+        private java.util.function.Supplier<com.google.common.collect.ImmutableList<java.lang.String>> namesSupplier;
+        private com.google.common.collect.ImmutableList<java.lang.String> names;
+        private java.util.function.Supplier<com.google.common.collect.ImmutableList<java.lang.String>> phonesSupplier;
+        private com.google.common.collect.ImmutableList<java.lang.String> phones;
+        private java.util.function.Supplier<cz.jcode.auto.value.step.builder.example.simple.Address> homeAddressSupplier;
+        private cz.jcode.auto.value.step.builder.example.simple.Address homeAddress;
+        private java.util.function.Supplier<cz.jcode.auto.value.step.builder.example.simple.NoBuilderAddress> workAddressSupplier;
+        private cz.jcode.auto.value.step.builder.example.simple.NoBuilderAddress workAddress;
+        private java.util.function.Supplier<java.util.Date> birthdaySupplier;
+        private java.util.Date birthday;
         public static IdLazyStep lazyStep()
         {
             return new LazyStepBuilder();
@@ -325,8 +325,8 @@ public final class AutoValue_Person extends $AutoValue_Person {
                 .names(null == names ? namesSupplier.get() : names)
                 .phones(null == phones ? phonesSupplier.get() : phones)
                 .homeAddress(null == homeAddress ? homeAddressSupplier.get() : homeAddress)
-                .workAddress(null == workAddress ? (null == workAddressSupplier ? null : workAddressSupplier.get()) : workAddress)
-                .birthday(null == birthday ? (null == birthdaySupplier ? null : birthdaySupplier.get()) : birthday)
+                .workAddress(null == workAddressSupplier ? workAddress : workAddressSupplier.get())
+                .birthday(null == birthdaySupplier ? birthday : birthdaySupplier.get())
                 .build();
         }
         @Override

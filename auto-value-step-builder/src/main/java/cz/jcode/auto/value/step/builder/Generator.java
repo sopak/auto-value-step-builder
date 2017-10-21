@@ -27,6 +27,7 @@ import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.type.DeclaredType;
+import javax.lang.model.type.PrimitiveType;
 import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.Types;
 import java.util.*;
@@ -67,7 +68,13 @@ public class Generator {
         vars.props = ImmutableList.copyOf(
                 context.properties()
                         .entrySet().stream()
-                        .map(this::getProperty)
+                        .map(
+                                entry -> new Property(
+                                        typeUtils,
+                                        entry.getValue(),
+                                        entry.getKey()
+                                )
+                        )
                         .collect(toList())
         );
 
@@ -154,26 +161,28 @@ public class Generator {
         return context.processingEnvironment().getElementUtils().getTypeElement(c.getName()).asType();
     }
 
-    private Property getProperty(Map.Entry<String, ExecutableElement> entry) {
-        return new Property(
-                entry.getValue(),
-                entry.getKey()
-        );
-    }
-
     public class Property {
         private ExecutableElement element;
-        public final String name;
-        public final String type;
+        private String name;
+        private String type;
+        private String nonPrimitiveType;
+        private boolean primitive = false;
         private boolean first = false;
         private boolean last = false;
         private Property prev = null;
         private Property next = null;
 
-        public Property(ExecutableElement element, String name) {
+        public Property(Types typeUtils, ExecutableElement element, String name) {
             this.element = element;
             this.name = name;
             this.type = element.getReturnType().toString();
+            if (element.getReturnType().getKind().isPrimitive()) {
+                PrimitiveType primitiveType = (PrimitiveType) element.getReturnType();
+                this.nonPrimitiveType = typeUtils.boxedClass(primitiveType).toString();
+                this.primitive=true;
+            } else {
+                this.nonPrimitiveType = element.getReturnType().toString();
+            }
         }
 
         public boolean isOptional() {
@@ -190,6 +199,14 @@ public class Generator {
 
         public String getType() {
             return type;
+        }
+
+        public String getNonPrimitiveType() {
+            return nonPrimitiveType;
+        }
+
+        public boolean isPrimitive() {
+            return primitive;
         }
 
         @Override

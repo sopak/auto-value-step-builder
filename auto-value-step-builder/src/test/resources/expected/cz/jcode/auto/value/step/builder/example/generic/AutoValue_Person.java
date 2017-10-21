@@ -103,12 +103,12 @@ public final class AutoValue_Person<T, H, W> extends $AutoValue_Person<T, H, W> 
     }
 
     public static class StepBuilder<T, H, W> implements IdStep<T, H, W>, NamesStep<T, H, W>, PhonesStep<T, H, W>, HomeAddressStep<T, H, W>, BuilderStep<T, H, W>, OptionalStep<T, H, W> {
-        private java.lang.Integer id = null;
-        private com.google.common.collect.ImmutableList<T> names = null;
-        private com.google.common.collect.ImmutableList<T> phones = null;
-        private H homeAddress = null;
-        private W workAddress = null;
-        private java.util.Date birthday = null;
+        private java.lang.Integer id;
+        private com.google.common.collect.ImmutableList<T> names;
+        private com.google.common.collect.ImmutableList<T> phones;
+        private H homeAddress;
+        private W workAddress;
+        private java.util.Date birthday;
         public static <T, H, W> IdStep<T, H, W> step()
         {
             return new StepBuilder<T, H, W>();
@@ -190,18 +190,18 @@ public final class AutoValue_Person<T, H, W> extends $AutoValue_Person<T, H, W> 
     }
 
     public static class LazyStepBuilder<T, H, W> implements IdLazyStep<T, H, W>, NamesLazyStep<T, H, W>, PhonesLazyStep<T, H, W>, HomeAddressLazyStep<T, H, W>, BuilderLazyStep<T, H, W>, OptionalLazyStep<T, H, W> {
-        private java.util.function.Supplier<java.lang.Integer> idSupplier = null;
-        private java.lang.Integer id = null;
-        private java.util.function.Supplier<com.google.common.collect.ImmutableList<T>> namesSupplier = null;
-        private com.google.common.collect.ImmutableList<T> names = null;
-        private java.util.function.Supplier<com.google.common.collect.ImmutableList<T>> phonesSupplier = null;
-        private com.google.common.collect.ImmutableList<T> phones = null;
-        private java.util.function.Supplier<H> homeAddressSupplier = null;
-        private H homeAddress = null;
-        private java.util.function.Supplier<W> workAddressSupplier = null;
-        private W workAddress = null;
-        private java.util.function.Supplier<java.util.Date> birthdaySupplier = null;
-        private java.util.Date birthday = null;
+        private java.util.function.Supplier<java.lang.Integer> idSupplier;
+        private java.lang.Integer id;
+        private java.util.function.Supplier<com.google.common.collect.ImmutableList<T>> namesSupplier;
+        private com.google.common.collect.ImmutableList<T> names;
+        private java.util.function.Supplier<com.google.common.collect.ImmutableList<T>> phonesSupplier;
+        private com.google.common.collect.ImmutableList<T> phones;
+        private java.util.function.Supplier<H> homeAddressSupplier;
+        private H homeAddress;
+        private java.util.function.Supplier<W> workAddressSupplier;
+        private W workAddress;
+        private java.util.function.Supplier<java.util.Date> birthdaySupplier;
+        private java.util.Date birthday;
         public static <T, H, W> IdLazyStep<T, H, W> lazyStep()
         {
             return new LazyStepBuilder<T, H, W>();
@@ -325,8 +325,8 @@ public final class AutoValue_Person<T, H, W> extends $AutoValue_Person<T, H, W> 
                 .names(null == names ? namesSupplier.get() : names)
                 .phones(null == phones ? phonesSupplier.get() : phones)
                 .homeAddress(null == homeAddress ? homeAddressSupplier.get() : homeAddress)
-                .workAddress(null == workAddress ? (null == workAddressSupplier ? null : workAddressSupplier.get()) : workAddress)
-                .birthday(null == birthday ? (null == birthdaySupplier ? null : birthdaySupplier.get()) : birthday)
+                .workAddress(null == workAddressSupplier ? workAddress : workAddressSupplier.get())
+                .birthday(null == birthdaySupplier ? birthday : birthdaySupplier.get())
                 .build();
         }
         @Override

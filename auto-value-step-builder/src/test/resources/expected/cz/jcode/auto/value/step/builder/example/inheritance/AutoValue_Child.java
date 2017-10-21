@@ -55,8 +55,8 @@ public final class AutoValue_Child extends $AutoValue_Child {
     }
 
     public static class StepBuilder implements ParentNumberStep, ChildNumberStep, BuilderStep {
-        private java.lang.Integer parentNumber = null;
-        private java.lang.Integer childNumber = null;
+        private java.lang.Integer parentNumber;
+        private java.lang.Integer childNumber;
         public static ParentNumberStep step()
         {
             return new StepBuilder();
@@ -99,10 +99,10 @@ public final class AutoValue_Child extends $AutoValue_Child {
     }
 
     public static class LazyStepBuilder implements ParentNumberLazyStep, ChildNumberLazyStep, BuilderLazyStep {
-        private java.util.function.Supplier<java.lang.Integer> parentNumberSupplier = null;
-        private java.lang.Integer parentNumber = null;
-        private java.util.function.Supplier<java.lang.Integer> childNumberSupplier = null;
-        private java.lang.Integer childNumber = null;
+        private java.util.function.Supplier<java.lang.Integer> parentNumberSupplier;
+        private java.lang.Integer parentNumber;
+        private java.util.function.Supplier<java.lang.Integer> childNumberSupplier;
+        private java.lang.Integer childNumber;
         public static ParentNumberLazyStep lazyStep()
         {
             return new LazyStepBuilder();

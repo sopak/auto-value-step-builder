@@ -110,12 +110,12 @@ public final class AutoValue_Address<T> extends $AutoValue_Address<T> {
     }
 
     public static class StepBuilder<T> implements TitleStep<T>, StreetStep<T>, CityStep<T>, PostcodeStep<T>, CountryCodeStep<T>, BuilderStep<T>, OptionalStep<T> {
-        private T title = null;
-        private T street = null;
-        private com.google.common.collect.ImmutableList<T> streetParts = null;
-        private T city = null;
-        private T postcode = null;
-        private T countryCode = null;
+        private T title;
+        private T street;
+        private com.google.common.collect.ImmutableList<T> streetParts;
+        private T city;
+        private T postcode;
+        private T countryCode;
         public static <T> TitleStep<T> step()
         {
             return new StepBuilder<T>();
@@ -200,18 +200,18 @@ public final class AutoValue_Address<T> extends $AutoValue_Address<T> {
     }
 
     public static class LazyStepBuilder<T> implements TitleLazyStep<T>, StreetLazyStep<T>, CityLazyStep<T>, PostcodeLazyStep<T>, CountryCodeLazyStep<T>, BuilderLazyStep<T>, OptionalLazyStep<T> {
-        private java.util.function.Supplier<T> titleSupplier = null;
-        private T title = null;
-        private java.util.function.Supplier<T> streetSupplier = null;
-        private T street = null;
-        private java.util.function.Supplier<com.google.common.collect.ImmutableList<T>> streetPartsSupplier = null;
-        private com.google.common.collect.ImmutableList<T> streetParts = null;
-        private java.util.function.Supplier<T> citySupplier = null;
-        private T city = null;
-        private java.util.function.Supplier<T> postcodeSupplier = null;
-        private T postcode = null;
-        private java.util.function.Supplier<T> countryCodeSupplier = null;
-        private T countryCode = null;
+        private java.util.function.Supplier<T> titleSupplier;
+        private T title;
+        private java.util.function.Supplier<T> streetSupplier;
+        private T street;
+        private java.util.function.Supplier<com.google.common.collect.ImmutableList<T>> streetPartsSupplier;
+        private com.google.common.collect.ImmutableList<T> streetParts;
+        private java.util.function.Supplier<T> citySupplier;
+        private T city;
+        private java.util.function.Supplier<T> postcodeSupplier;
+        private T postcode;
+        private java.util.function.Supplier<T> countryCodeSupplier;
+        private T countryCode;
         public static <T> TitleLazyStep<T> lazyStep()
         {
             return new LazyStepBuilder<T>();
@@ -343,7 +343,7 @@ public final class AutoValue_Address<T> extends $AutoValue_Address<T> {
                 .city(null == city ? citySupplier.get() : city)
                 .postcode(null == postcode ? postcodeSupplier.get() : postcode)
                 .countryCode(null == countryCode ? countryCodeSupplier.get() : countryCode)
-                .streetParts(null == streetParts ? (null == streetPartsSupplier ? null : streetPartsSupplier.get()) : streetParts)
+                .streetParts(null == streetPartsSupplier ? streetParts : streetPartsSupplier.get())
                 .build();
         }
         @Override

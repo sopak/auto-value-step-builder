@@ -59,6 +59,9 @@ public class GeneratorTest {
                         "cz.jcode.auto.value.step.builder.example.inheritance.OtherInterface",
                         "cz.jcode.auto.value.step.builder.example.inheritance.Parent",
                         "cz.jcode.auto.value.step.builder.example.inheritance.ParentInterface"
+                ),
+                ImmutableList.of(
+                        "cz.jcode.auto.value.step.builder.example.primitive.Primitive"
                 )
         );
     }

@@ -110,12 +110,12 @@ public final class AutoValue_NoBuilderAddress extends $AutoValue_NoBuilderAddres
     }
 
     public static class StepBuilder implements TitleStep, StreetStep, CityStep, PostcodeStep, CountryCodeStep, BuilderStep, OptionalStep {
-        private java.lang.String title = null;
-        private java.lang.String street = null;
-        private com.google.common.collect.ImmutableList<java.lang.String> streetParts = null;
-        private java.lang.String city = null;
-        private java.lang.String postcode = null;
-        private java.lang.String countryCode = null;
+        private java.lang.String title;
+        private java.lang.String street;
+        private com.google.common.collect.ImmutableList<java.lang.String> streetParts;
+        private java.lang.String city;
+        private java.lang.String postcode;
+        private java.lang.String countryCode;
         public static TitleStep step()
         {
             return new StepBuilder();
@@ -200,18 +200,18 @@ public final class AutoValue_NoBuilderAddress extends $AutoValue_NoBuilderAddres
     }
 
     public static class LazyStepBuilder implements TitleLazyStep, StreetLazyStep, CityLazyStep, PostcodeLazyStep, CountryCodeLazyStep, BuilderLazyStep, OptionalLazyStep {
-        private java.util.function.Supplier<java.lang.String> titleSupplier = null;
-        private java.lang.String title = null;
-        private java.util.function.Supplier<java.lang.String> streetSupplier = null;
-        private java.lang.String street = null;
-        private java.util.function.Supplier<com.google.common.collect.ImmutableList<java.lang.String>> streetPartsSupplier = null;
-        private com.google.common.collect.ImmutableList<java.lang.String> streetParts = null;
-        private java.util.function.Supplier<java.lang.String> citySupplier = null;
-        private java.lang.String city = null;
-        private java.util.function.Supplier<java.lang.String> postcodeSupplier = null;
-        private java.lang.String postcode = null;
-        private java.util.function.Supplier<java.lang.String> countryCodeSupplier = null;
-        private java.lang.String countryCode = null;
+        private java.util.function.Supplier<java.lang.String> titleSupplier;
+        private java.lang.String title;
+        private java.util.function.Supplier<java.lang.String> streetSupplier;
+        private java.lang.String street;
+        private java.util.function.Supplier<com.google.common.collect.ImmutableList<java.lang.String>> streetPartsSupplier;
+        private com.google.common.collect.ImmutableList<java.lang.String> streetParts;
+        private java.util.function.Supplier<java.lang.String> citySupplier;
+        private java.lang.String city;
+        private java.util.function.Supplier<java.lang.String> postcodeSupplier;
+        private java.lang.String postcode;
+        private java.util.function.Supplier<java.lang.String> countryCodeSupplier;
+        private java.lang.String countryCode;
         public static TitleLazyStep lazyStep()
         {
             return new LazyStepBuilder();
@@ -338,12 +338,12 @@ public final class AutoValue_NoBuilderAddress extends $AutoValue_NoBuilderAddres
         public cz.jcode.auto.value.step.builder.example.simple.NoBuilderAddress build()
         {
             return new AutoValue_NoBuilderAddress(
-                    null == title ? (null == titleSupplier ? null : titleSupplier.get()) : title,
-                    null == street ? (null == streetSupplier ? null : streetSupplier.get()) : street,
-                    null == streetParts ? (null == streetPartsSupplier ? null : streetPartsSupplier.get()) : streetParts,
-                    null == city ? (null == citySupplier ? null : citySupplier.get()) : city,
-                    null == postcode ? (null == postcodeSupplier ? null : postcodeSupplier.get()) : postcode,
-                    null == countryCode ? (null == countryCodeSupplier ? null : countryCodeSupplier.get()) : countryCode
+                    null == titleSupplier ? title : titleSupplier.get(),
+                    null == streetSupplier ? street : streetSupplier.get(),
+                    null == streetPartsSupplier ? streetParts : streetPartsSupplier.get(),
+                    null == citySupplier ? city : citySupplier.get(),
+                    null == postcodeSupplier ? postcode : postcodeSupplier.get(),
+                    null == countryCodeSupplier ? countryCode : countryCodeSupplier.get()
                 );
         }
         @Override

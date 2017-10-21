@@ -69,7 +69,7 @@ public #if ($isFinal) final #else abstract #end class $className${formalTypes} e
     public interface OptionalLazyStep${formalTypes} extends BuildStep${formalTypes}
     {
 #foreach ($p in $optional)
-        OptionalLazyStep${formalTypes} $p(java.util.function.Supplier<${p.type}> ${p}Supplier);
+        OptionalLazyStep${formalTypes} $p(java.util.function.Supplier<${p.nonPrimitiveType}> ${p}Supplier);
         OptionalLazyStep${formalTypes} $p(${p.type} ${p});
 #end
     }
@@ -83,7 +83,7 @@ public #if ($isFinal) final #else abstract #end class $className${formalTypes} e
 
     public interface $p.lazyStepInterface${formalTypes}
     {
-        $p.nextLazyType${formalTypes} $p(java.util.function.Supplier<${p.type}> ${p}Supplier);
+        $p.nextLazyType${formalTypes} $p(java.util.function.Supplier<${p.nonPrimitiveType}> ${p}Supplier);
         $p.nextLazyType${formalTypes} $p(${p.type} ${p});
     }
 
@@ -98,7 +98,7 @@ public #if ($isFinal) final #else abstract #end class $className${formalTypes} e
     {
 
 #foreach ($p in $props)
-        private ${p.type} ${p} = null;
+        private ${p.type} ${p};
 #end
 
         public static ${formalTypes} $firstRequired.stepInterface${formalTypes} step()
@@ -110,9 +110,11 @@ public #if ($isFinal) final #else abstract #end class $className${formalTypes} e
         @Override
         public $p.nextType${formalTypes} $p(${p.type} ${p})
         {
+#if (!$p.primitive)
             if (${p} == null) {
                 throw new NullPointerException("Null ${p}");
             }
+#end
             this.$p = $p;
             return this;
         }
@@ -175,8 +177,8 @@ public #if ($isFinal) final #else abstract #end class $className${formalTypes} e
     {
 
 #foreach ($p in $props)
-        private java.util.function.Supplier<${p.type}> ${p}Supplier = null;
-        private ${p.type} ${p} = null;
+        private java.util.function.Supplier<${p.nonPrimitiveType}> ${p}Supplier;
+        private ${p.type} ${p};
 #end
 
         public static ${formalTypes} $firstRequired.lazyStepInterface${formalTypes} lazyStep()
@@ -186,12 +188,16 @@ public #if ($isFinal) final #else abstract #end class $className${formalTypes} e
 
 #foreach ($p in $required)
         @Override
-        public $p.nextLazyType${formalTypes} $p(java.util.function.Supplier<${p.type}> ${p}Supplier)
+        public $p.nextLazyType${formalTypes} $p(java.util.function.Supplier<${p.nonPrimitiveType}> ${p}Supplier)
         {
+#if (!$p.primitive)
             if (${p}Supplier == null) {
                 throw new NullPointerException("Null ${p}Supplier");
             }
+#end
+#if (!$p.primitive)
             this.${p} = null;
+#end
             this.${p}Supplier = ${p}Supplier;
             return this;
         }
@@ -199,9 +205,11 @@ public #if ($isFinal) final #else abstract #end class $className${formalTypes} e
         @Override
         public $p.nextLazyType${formalTypes} $p(${p.type} ${p})
         {
+#if (!$p.primitive)
             if (${p} == null) {
                 throw new NullPointerException("Null ${p}");
             }
+#end
             this.${p}Supplier = null;
             this.${p} = ${p};
             return this;
@@ -210,7 +218,7 @@ public #if ($isFinal) final #else abstract #end class $className${formalTypes} e
 #end
 #foreach ($p in $optional)
         @Override
-        public OptionalLazyStep${formalTypes} $p(java.util.function.Supplier<${p.type}> ${p}Supplier)
+        public OptionalLazyStep${formalTypes} $p(java.util.function.Supplier<${p.nonPrimitiveType}> ${p}Supplier)
         {
             this.${p}Supplier = ${p}Supplier;
             return this;
@@ -247,14 +255,14 @@ public #if ($isFinal) final #else abstract #end class $className${formalTypes} e
 
 #end
 #foreach ($p in $optional)
-                .$p(null == ${p} ? ( null == ${p}Supplier ? null : ${p}Supplier.get() ) : ${p})
+                .$p(null == ${p}Supplier ? ${p} : ${p}Supplier.get())
 
 #end
                 .build();
 #else
             return new $className${formalTypes}(
 #foreach ($p in $props)
-                    null == ${p} ? ( null == ${p}Supplier ? null : ${p}Supplier.get() ) : ${p} #if( $foreach.hasNext ), #end
+                    null == ${p}Supplier ? ${p} : ${p}Supplier.get() #if( $foreach.hasNext ), #end
 
 
 #end
