@@ -127,6 +127,7 @@ public class Generator {
         vars.implementedClassName = declaredType.toString().replace(".", "_");
         vars.formalTypes = typeSimplifier.formalTypeParametersString(type);
         vars.className = className;
+        vars.finalClassName = className.replaceFirst("^\\$*","");
         vars.classToExtend = classToExtend;
         vars.isFinal = isFinal;
 
@@ -179,7 +180,7 @@ public class Generator {
             if (element.getReturnType().getKind().isPrimitive()) {
                 PrimitiveType primitiveType = (PrimitiveType) element.getReturnType();
                 this.nonPrimitiveType = typeUtils.boxedClass(primitiveType).toString();
-                this.primitive=true;
+                this.primitive = true;
             } else {
                 this.nonPrimitiveType = element.getReturnType().toString();
             }

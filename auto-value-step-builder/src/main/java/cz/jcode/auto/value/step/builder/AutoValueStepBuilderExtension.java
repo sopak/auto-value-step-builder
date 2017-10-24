@@ -36,8 +36,7 @@ public class AutoValueStepBuilderExtension extends AutoValueExtension
 
     @Override
     public boolean mustBeFinal(Context context) {
-        //TODO final until I can find real final classname to create new instance
-        return true;
+        return false;
     }
 
     @Override

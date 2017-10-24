@@ -70,6 +70,7 @@ class AutoValueStepBuilderTemplateVars extends TemplateVars
     String originalClassName;
     String implementedClassName;
     String className;
+    String finalClassName;
     String classToExtend;
 
     /**

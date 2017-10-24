@@ -150,7 +150,7 @@ public #if ($isFinal) final #else abstract #end class $className${formalTypes} e
 #end
                 .build();
 #else
-            return new $className${formalTypes}(
+            return new $finalClassName${formalTypes}(
 #foreach ($p in $props)
                     ${p} #if( $foreach.hasNext ), #end
 
@@ -260,7 +260,7 @@ public #if ($isFinal) final #else abstract #end class $className${formalTypes} e
 #end
                 .build();
 #else
-            return new $className${formalTypes}(
+            return new $finalClassName${formalTypes}(
 #foreach ($p in $props)
                     null == ${p}Supplier ? ${p} : ${p}Supplier.get() #if( $foreach.hasNext ), #end
 
