@@ -100,6 +100,9 @@ public #if ($isFinal) final #else abstract #end class $className${formalTypes} e
 #foreach ($p in $props)
         private ${p.type} ${p};
 #end
+#foreach ($p in $optional)
+        private boolean ${p}IsSet;
+#end
 
         public static ${formalTypes} $firstRequired.stepInterface${formalTypes} step()
         {
@@ -126,6 +129,7 @@ public #if ($isFinal) final #else abstract #end class $className${formalTypes} e
         public OptionalStep${formalTypes} $p(${p.type} ${p})
         {
             this.$p = $p;
+            this.${p}IsSet = true;
             return this;
         }
 
@@ -144,11 +148,16 @@ public #if ($isFinal) final #else abstract #end class $className${formalTypes} e
         public $originalClassName build()
         {
 #if($builderTypeCreator != "")
-            return $builderTypeCreator
-#foreach ($p in $props)
-                .$p($p)
+            $builderTypeName builder = $builderTypeCreator;
+#foreach ($p in $required)
+            builder.$p($p);
 #end
-                .build();
+#foreach ($p in $optional)
+            if(${p}IsSet){
+                builder.$p(${p});
+            }
+#end
+            return builder.build();
 #else
             return new $finalClassName${formalTypes}(
 #foreach ($p in $props)
@@ -180,7 +189,9 @@ public #if ($isFinal) final #else abstract #end class $className${formalTypes} e
         private java.util.function.Supplier<${p.nonPrimitiveType}> ${p}Supplier;
         private ${p.type} ${p};
 #end
-
+#foreach ($p in $optional)
+        private boolean ${p}IsSet;
+#end
         public static ${formalTypes} $firstRequired.lazyStepInterface${formalTypes} lazyStep()
         {
             return new LazyStepBuilder${formalTypes}();
@@ -190,11 +201,9 @@ public #if ($isFinal) final #else abstract #end class $className${formalTypes} e
         @Override
         public $p.nextLazyType${formalTypes} $p(java.util.function.Supplier<${p.nonPrimitiveType}> ${p}Supplier)
         {
-#if (!$p.primitive)
             if (${p}Supplier == null) {
                 throw new NullPointerException("Null ${p}Supplier");
             }
-#end
 #if (!$p.primitive)
             this.${p} = null;
 #end
@@ -220,7 +229,11 @@ public #if ($isFinal) final #else abstract #end class $className${formalTypes} e
         @Override
         public OptionalLazyStep${formalTypes} $p(java.util.function.Supplier<${p.nonPrimitiveType}> ${p}Supplier)
         {
+#if (!$p.primitive)
+            this.${p} = null;
+#end
             this.${p}Supplier = ${p}Supplier;
+            this.${p}IsSet = true;
             return this;
         }
 
@@ -229,6 +242,7 @@ public #if ($isFinal) final #else abstract #end class $className${formalTypes} e
         {
             this.${p}Supplier = null;
             this.${p} = ${p};
+            this.${p}IsSet = true;
             return this;
         }
 
@@ -249,16 +263,18 @@ public #if ($isFinal) final #else abstract #end class $className${formalTypes} e
         public $originalClassName build()
         {
 #if($builderTypeCreator != "")
-            return $builderTypeCreator
+            $builderTypeName builder = $builderTypeCreator;
 #foreach ($p in $required)
-                .$p(null == $p ? ${p}Supplier.get() : ${p})
+            builder.$p(null == ${p}Supplier ? ${p} : ${p}Supplier.get());
 
 #end
 #foreach ($p in $optional)
-                .$p(null == ${p}Supplier ? ${p} : ${p}Supplier.get())
+            if(${p}IsSet){
+                builder.$p(null == ${p}Supplier ? ${p} : ${p}Supplier.get());
+            }
 
 #end
-                .build();
+            return builder.build();
 #else
             return new $finalClassName${formalTypes}(
 #foreach ($p in $props)

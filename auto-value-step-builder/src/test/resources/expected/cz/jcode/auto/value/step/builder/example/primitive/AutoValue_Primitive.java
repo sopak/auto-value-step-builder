@@ -219,6 +219,9 @@ public final class AutoValue_Primitive extends $AutoValue_Primitive {
         @Override
         public PrimitiveLongLazyStep primitiveInt(java.util.function.Supplier<java.lang.Integer> primitiveIntSupplier)
         {
+            if (primitiveIntSupplier == null) {
+                throw new NullPointerException("Null primitiveIntSupplier");
+            }
             this.primitiveIntSupplier = primitiveIntSupplier;
             return this;
         }
@@ -232,6 +235,9 @@ public final class AutoValue_Primitive extends $AutoValue_Primitive {
         @Override
         public PrimitiveDoubleLazyStep primitiveLong(java.util.function.Supplier<java.lang.Long> primitiveLongSupplier)
         {
+            if (primitiveLongSupplier == null) {
+                throw new NullPointerException("Null primitiveLongSupplier");
+            }
             this.primitiveLongSupplier = primitiveLongSupplier;
             return this;
         }
@@ -245,6 +251,9 @@ public final class AutoValue_Primitive extends $AutoValue_Primitive {
         @Override
         public PrimitiveFloatLazyStep primitiveDouble(java.util.function.Supplier<java.lang.Double> primitiveDoubleSupplier)
         {
+            if (primitiveDoubleSupplier == null) {
+                throw new NullPointerException("Null primitiveDoubleSupplier");
+            }
             this.primitiveDoubleSupplier = primitiveDoubleSupplier;
             return this;
         }
@@ -258,6 +267,9 @@ public final class AutoValue_Primitive extends $AutoValue_Primitive {
         @Override
         public PrimitiveBooleanLazyStep primitiveFloat(java.util.function.Supplier<java.lang.Float> primitiveFloatSupplier)
         {
+            if (primitiveFloatSupplier == null) {
+                throw new NullPointerException("Null primitiveFloatSupplier");
+            }
             this.primitiveFloatSupplier = primitiveFloatSupplier;
             return this;
         }
@@ -271,6 +283,9 @@ public final class AutoValue_Primitive extends $AutoValue_Primitive {
         @Override
         public PrimitiveByteLazyStep primitiveBoolean(java.util.function.Supplier<java.lang.Boolean> primitiveBooleanSupplier)
         {
+            if (primitiveBooleanSupplier == null) {
+                throw new NullPointerException("Null primitiveBooleanSupplier");
+            }
             this.primitiveBooleanSupplier = primitiveBooleanSupplier;
             return this;
         }
@@ -284,6 +299,9 @@ public final class AutoValue_Primitive extends $AutoValue_Primitive {
         @Override
         public PrimitiveCharLazyStep primitiveByte(java.util.function.Supplier<java.lang.Byte> primitiveByteSupplier)
         {
+            if (primitiveByteSupplier == null) {
+                throw new NullPointerException("Null primitiveByteSupplier");
+            }
             this.primitiveByteSupplier = primitiveByteSupplier;
             return this;
         }
@@ -297,6 +315,9 @@ public final class AutoValue_Primitive extends $AutoValue_Primitive {
         @Override
         public BuilderLazyStep primitiveChar(java.util.function.Supplier<java.lang.Character> primitiveCharSupplier)
         {
+            if (primitiveCharSupplier == null) {
+                throw new NullPointerException("Null primitiveCharSupplier");
+            }
             this.primitiveCharSupplier = primitiveCharSupplier;
             return this;
         }

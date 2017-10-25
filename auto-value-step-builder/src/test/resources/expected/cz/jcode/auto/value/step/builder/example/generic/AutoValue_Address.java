@@ -116,6 +116,7 @@ public final class AutoValue_Address<T> extends $AutoValue_Address<T> {
         private T city;
         private T postcode;
         private T countryCode;
+        private boolean streetPartsIsSet;
         public static <T> TitleStep<T> step()
         {
             return new StepBuilder<T>();
@@ -169,6 +170,7 @@ public final class AutoValue_Address<T> extends $AutoValue_Address<T> {
         public OptionalStep<T> streetParts(com.google.common.collect.ImmutableList<T> streetParts)
         {
             this.streetParts = streetParts;
+            this.streetPartsIsSet = true;
             return this;
         }
         @Override
@@ -179,14 +181,16 @@ public final class AutoValue_Address<T> extends $AutoValue_Address<T> {
         @Override
         public cz.jcode.auto.value.step.builder.example.generic.Address<T> build()
         {
-            return cz.jcode.auto.value.step.builder.example.generic.Address.<T>builder()
-                .title(title)
-                .street(street)
-                .streetParts(streetParts)
-                .city(city)
-                .postcode(postcode)
-                .countryCode(countryCode)
-                .build();
+            Address.Builder<T> builder = cz.jcode.auto.value.step.builder.example.generic.Address.<T>builder();
+            builder.title(title);
+            builder.street(street);
+            builder.city(city);
+            builder.postcode(postcode);
+            builder.countryCode(countryCode);
+            if(streetPartsIsSet){
+                builder.streetParts(streetParts);
+            }
+            return builder.build();
         }
         @Override
         public cz.jcode.auto.value.step.builder.example.generic.Address<T> get() {
@@ -212,6 +216,7 @@ public final class AutoValue_Address<T> extends $AutoValue_Address<T> {
         private T postcode;
         private java.util.function.Supplier<T> countryCodeSupplier;
         private T countryCode;
+        private boolean streetPartsIsSet;
         public static <T> TitleLazyStep<T> lazyStep()
         {
             return new LazyStepBuilder<T>();
@@ -319,7 +324,9 @@ public final class AutoValue_Address<T> extends $AutoValue_Address<T> {
         @Override
         public OptionalLazyStep<T> streetParts(java.util.function.Supplier<com.google.common.collect.ImmutableList<T>> streetPartsSupplier)
         {
+            this.streetParts = null;
             this.streetPartsSupplier = streetPartsSupplier;
+            this.streetPartsIsSet = true;
             return this;
         }
         @Override
@@ -327,6 +334,7 @@ public final class AutoValue_Address<T> extends $AutoValue_Address<T> {
         {
             this.streetPartsSupplier = null;
             this.streetParts = streetParts;
+            this.streetPartsIsSet = true;
             return this;
         }
         @Override
@@ -337,14 +345,16 @@ public final class AutoValue_Address<T> extends $AutoValue_Address<T> {
         @Override
         public cz.jcode.auto.value.step.builder.example.generic.Address<T> build()
         {
-            return cz.jcode.auto.value.step.builder.example.generic.Address.<T>builder()
-                .title(null == title ? titleSupplier.get() : title)
-                .street(null == street ? streetSupplier.get() : street)
-                .city(null == city ? citySupplier.get() : city)
-                .postcode(null == postcode ? postcodeSupplier.get() : postcode)
-                .countryCode(null == countryCode ? countryCodeSupplier.get() : countryCode)
-                .streetParts(null == streetPartsSupplier ? streetParts : streetPartsSupplier.get())
-                .build();
+            Address.Builder<T> builder = cz.jcode.auto.value.step.builder.example.generic.Address.<T>builder();
+            builder.title(null == titleSupplier ? title : titleSupplier.get());
+            builder.street(null == streetSupplier ? street : streetSupplier.get());
+            builder.city(null == citySupplier ? city : citySupplier.get());
+            builder.postcode(null == postcodeSupplier ? postcode : postcodeSupplier.get());
+            builder.countryCode(null == countryCodeSupplier ? countryCode : countryCodeSupplier.get());
+            if(streetPartsIsSet){
+                builder.streetParts(null == streetPartsSupplier ? streetParts : streetPartsSupplier.get());
+            }
+            return builder.build();
         }
         @Override
         public cz.jcode.auto.value.step.builder.example.generic.Address<T> get() {

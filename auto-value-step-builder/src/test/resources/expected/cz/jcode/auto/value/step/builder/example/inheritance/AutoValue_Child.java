@@ -82,10 +82,10 @@ public final class AutoValue_Child extends $AutoValue_Child {
         @Override
         public cz.jcode.auto.value.step.builder.example.inheritance.Child build()
         {
-            return cz.jcode.auto.value.step.builder.example.inheritance.Child.builder()
-                .parentNumber(parentNumber)
-                .childNumber(childNumber)
-                .build();
+            Child.Builder builder = cz.jcode.auto.value.step.builder.example.inheritance.Child.builder();
+            builder.parentNumber(parentNumber);
+            builder.childNumber(childNumber);
+            return builder.build();
         }
         @Override
         public cz.jcode.auto.value.step.builder.example.inheritance.Child get() {
@@ -150,10 +150,10 @@ public final class AutoValue_Child extends $AutoValue_Child {
         @Override
         public cz.jcode.auto.value.step.builder.example.inheritance.Child build()
         {
-            return cz.jcode.auto.value.step.builder.example.inheritance.Child.builder()
-                .parentNumber(null == parentNumber ? parentNumberSupplier.get() : parentNumber)
-                .childNumber(null == childNumber ? childNumberSupplier.get() : childNumber)
-                .build();
+            Child.Builder builder = cz.jcode.auto.value.step.builder.example.inheritance.Child.builder();
+            builder.parentNumber(null == parentNumberSupplier ? parentNumber : parentNumberSupplier.get());
+            builder.childNumber(null == childNumberSupplier ? childNumber : childNumberSupplier.get());
+            return builder.build();
         }
         @Override
         public cz.jcode.auto.value.step.builder.example.inheritance.Child get() {

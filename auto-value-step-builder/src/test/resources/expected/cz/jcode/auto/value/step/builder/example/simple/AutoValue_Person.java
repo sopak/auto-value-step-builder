@@ -109,6 +109,8 @@ public final class AutoValue_Person extends $AutoValue_Person {
         private cz.jcode.auto.value.step.builder.example.simple.Address homeAddress;
         private cz.jcode.auto.value.step.builder.example.simple.NoBuilderAddress workAddress;
         private java.util.Date birthday;
+        private boolean workAddressIsSet;
+        private boolean birthdayIsSet;
         public static IdStep step()
         {
             return new StepBuilder();
@@ -153,12 +155,14 @@ public final class AutoValue_Person extends $AutoValue_Person {
         public OptionalStep workAddress(cz.jcode.auto.value.step.builder.example.simple.NoBuilderAddress workAddress)
         {
             this.workAddress = workAddress;
+            this.workAddressIsSet = true;
             return this;
         }
         @Override
         public OptionalStep birthday(java.util.Date birthday)
         {
             this.birthday = birthday;
+            this.birthdayIsSet = true;
             return this;
         }
         @Override
@@ -169,14 +173,18 @@ public final class AutoValue_Person extends $AutoValue_Person {
         @Override
         public cz.jcode.auto.value.step.builder.example.simple.Person build()
         {
-            return cz.jcode.auto.value.step.builder.example.simple.Person.builder()
-                .id(id)
-                .names(names)
-                .phones(phones)
-                .homeAddress(homeAddress)
-                .workAddress(workAddress)
-                .birthday(birthday)
-                .build();
+            Person.Builder builder = cz.jcode.auto.value.step.builder.example.simple.Person.builder();
+            builder.id(id);
+            builder.names(names);
+            builder.phones(phones);
+            builder.homeAddress(homeAddress);
+            if(workAddressIsSet){
+                builder.workAddress(workAddress);
+            }
+            if(birthdayIsSet){
+                builder.birthday(birthday);
+            }
+            return builder.build();
         }
         @Override
         public cz.jcode.auto.value.step.builder.example.simple.Person get() {
@@ -202,6 +210,8 @@ public final class AutoValue_Person extends $AutoValue_Person {
         private cz.jcode.auto.value.step.builder.example.simple.NoBuilderAddress workAddress;
         private java.util.function.Supplier<java.util.Date> birthdaySupplier;
         private java.util.Date birthday;
+        private boolean workAddressIsSet;
+        private boolean birthdayIsSet;
         public static IdLazyStep lazyStep()
         {
             return new LazyStepBuilder();
@@ -289,7 +299,9 @@ public final class AutoValue_Person extends $AutoValue_Person {
         @Override
         public OptionalLazyStep workAddress(java.util.function.Supplier<cz.jcode.auto.value.step.builder.example.simple.NoBuilderAddress> workAddressSupplier)
         {
+            this.workAddress = null;
             this.workAddressSupplier = workAddressSupplier;
+            this.workAddressIsSet = true;
             return this;
         }
         @Override
@@ -297,12 +309,15 @@ public final class AutoValue_Person extends $AutoValue_Person {
         {
             this.workAddressSupplier = null;
             this.workAddress = workAddress;
+            this.workAddressIsSet = true;
             return this;
         }
         @Override
         public OptionalLazyStep birthday(java.util.function.Supplier<java.util.Date> birthdaySupplier)
         {
+            this.birthday = null;
             this.birthdaySupplier = birthdaySupplier;
+            this.birthdayIsSet = true;
             return this;
         }
         @Override
@@ -310,6 +325,7 @@ public final class AutoValue_Person extends $AutoValue_Person {
         {
             this.birthdaySupplier = null;
             this.birthday = birthday;
+            this.birthdayIsSet = true;
             return this;
         }
         @Override
@@ -320,14 +336,18 @@ public final class AutoValue_Person extends $AutoValue_Person {
         @Override
         public cz.jcode.auto.value.step.builder.example.simple.Person build()
         {
-            return cz.jcode.auto.value.step.builder.example.simple.Person.builder()
-                .id(null == id ? idSupplier.get() : id)
-                .names(null == names ? namesSupplier.get() : names)
-                .phones(null == phones ? phonesSupplier.get() : phones)
-                .homeAddress(null == homeAddress ? homeAddressSupplier.get() : homeAddress)
-                .workAddress(null == workAddressSupplier ? workAddress : workAddressSupplier.get())
-                .birthday(null == birthdaySupplier ? birthday : birthdaySupplier.get())
-                .build();
+            Person.Builder builder = cz.jcode.auto.value.step.builder.example.simple.Person.builder();
+            builder.id(null == idSupplier ? id : idSupplier.get());
+            builder.names(null == namesSupplier ? names : namesSupplier.get());
+            builder.phones(null == phonesSupplier ? phones : phonesSupplier.get());
+            builder.homeAddress(null == homeAddressSupplier ? homeAddress : homeAddressSupplier.get());
+            if(workAddressIsSet){
+                builder.workAddress(null == workAddressSupplier ? workAddress : workAddressSupplier.get());
+            }
+            if(birthdayIsSet){
+                builder.birthday(null == birthdaySupplier ? birthday : birthdaySupplier.get());
+            }
+            return builder.build();
         }
         @Override
         public cz.jcode.auto.value.step.builder.example.simple.Person get() {

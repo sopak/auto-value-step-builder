@@ -116,6 +116,7 @@ public final class AutoValue_NoBuilderAddress extends $AutoValue_NoBuilderAddres
         private java.lang.String city;
         private java.lang.String postcode;
         private java.lang.String countryCode;
+        private boolean streetPartsIsSet;
         public static TitleStep step()
         {
             return new StepBuilder();
@@ -169,6 +170,7 @@ public final class AutoValue_NoBuilderAddress extends $AutoValue_NoBuilderAddres
         public OptionalStep streetParts(com.google.common.collect.ImmutableList<java.lang.String> streetParts)
         {
             this.streetParts = streetParts;
+            this.streetPartsIsSet = true;
             return this;
         }
         @Override
@@ -212,6 +214,7 @@ public final class AutoValue_NoBuilderAddress extends $AutoValue_NoBuilderAddres
         private java.lang.String postcode;
         private java.util.function.Supplier<java.lang.String> countryCodeSupplier;
         private java.lang.String countryCode;
+        private boolean streetPartsIsSet;
         public static TitleLazyStep lazyStep()
         {
             return new LazyStepBuilder();
@@ -319,7 +322,9 @@ public final class AutoValue_NoBuilderAddress extends $AutoValue_NoBuilderAddres
         @Override
         public OptionalLazyStep streetParts(java.util.function.Supplier<com.google.common.collect.ImmutableList<java.lang.String>> streetPartsSupplier)
         {
+            this.streetParts = null;
             this.streetPartsSupplier = streetPartsSupplier;
+            this.streetPartsIsSet = true;
             return this;
         }
         @Override
@@ -327,6 +332,7 @@ public final class AutoValue_NoBuilderAddress extends $AutoValue_NoBuilderAddres
         {
             this.streetPartsSupplier = null;
             this.streetParts = streetParts;
+            this.streetPartsIsSet = true;
             return this;
         }
         @Override

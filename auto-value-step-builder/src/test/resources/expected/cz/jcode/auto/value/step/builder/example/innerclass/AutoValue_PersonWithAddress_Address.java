@@ -116,6 +116,7 @@ public final class AutoValue_PersonWithAddress_Address extends $AutoValue_Person
         private java.lang.String city;
         private java.lang.String postcode;
         private java.lang.String countryCode;
+        private boolean streetPartsIsSet;
         public static TitleStep step()
         {
             return new StepBuilder();
@@ -169,6 +170,7 @@ public final class AutoValue_PersonWithAddress_Address extends $AutoValue_Person
         public OptionalStep streetParts(com.google.common.collect.ImmutableList<java.lang.String> streetParts)
         {
             this.streetParts = streetParts;
+            this.streetPartsIsSet = true;
             return this;
         }
         @Override
@@ -179,14 +181,16 @@ public final class AutoValue_PersonWithAddress_Address extends $AutoValue_Person
         @Override
         public cz.jcode.auto.value.step.builder.example.innerclass.PersonWithAddress.Address build()
         {
-            return cz.jcode.auto.value.step.builder.example.innerclass.PersonWithAddress.Address.builder()
-                .title(title)
-                .street(street)
-                .streetParts(streetParts)
-                .city(city)
-                .postcode(postcode)
-                .countryCode(countryCode)
-                .build();
+            PersonWithAddress.Address.AddressBuilder builder = cz.jcode.auto.value.step.builder.example.innerclass.PersonWithAddress.Address.builder();
+            builder.title(title);
+            builder.street(street);
+            builder.city(city);
+            builder.postcode(postcode);
+            builder.countryCode(countryCode);
+            if(streetPartsIsSet){
+                builder.streetParts(streetParts);
+            }
+            return builder.build();
         }
         @Override
         public cz.jcode.auto.value.step.builder.example.innerclass.PersonWithAddress.Address get() {
@@ -212,6 +216,7 @@ public final class AutoValue_PersonWithAddress_Address extends $AutoValue_Person
         private java.lang.String postcode;
         private java.util.function.Supplier<java.lang.String> countryCodeSupplier;
         private java.lang.String countryCode;
+        private boolean streetPartsIsSet;
         public static TitleLazyStep lazyStep()
         {
             return new LazyStepBuilder();
@@ -319,7 +324,9 @@ public final class AutoValue_PersonWithAddress_Address extends $AutoValue_Person
         @Override
         public OptionalLazyStep streetParts(java.util.function.Supplier<com.google.common.collect.ImmutableList<java.lang.String>> streetPartsSupplier)
         {
+            this.streetParts = null;
             this.streetPartsSupplier = streetPartsSupplier;
+            this.streetPartsIsSet = true;
             return this;
         }
         @Override
@@ -327,6 +334,7 @@ public final class AutoValue_PersonWithAddress_Address extends $AutoValue_Person
         {
             this.streetPartsSupplier = null;
             this.streetParts = streetParts;
+            this.streetPartsIsSet = true;
             return this;
         }
         @Override
@@ -337,14 +345,16 @@ public final class AutoValue_PersonWithAddress_Address extends $AutoValue_Person
         @Override
         public cz.jcode.auto.value.step.builder.example.innerclass.PersonWithAddress.Address build()
         {
-            return cz.jcode.auto.value.step.builder.example.innerclass.PersonWithAddress.Address.builder()
-                .title(null == title ? titleSupplier.get() : title)
-                .street(null == street ? streetSupplier.get() : street)
-                .city(null == city ? citySupplier.get() : city)
-                .postcode(null == postcode ? postcodeSupplier.get() : postcode)
-                .countryCode(null == countryCode ? countryCodeSupplier.get() : countryCode)
-                .streetParts(null == streetPartsSupplier ? streetParts : streetPartsSupplier.get())
-                .build();
+            PersonWithAddress.Address.AddressBuilder builder = cz.jcode.auto.value.step.builder.example.innerclass.PersonWithAddress.Address.builder();
+            builder.title(null == titleSupplier ? title : titleSupplier.get());
+            builder.street(null == streetSupplier ? street : streetSupplier.get());
+            builder.city(null == citySupplier ? city : citySupplier.get());
+            builder.postcode(null == postcodeSupplier ? postcode : postcodeSupplier.get());
+            builder.countryCode(null == countryCodeSupplier ? countryCode : countryCodeSupplier.get());
+            if(streetPartsIsSet){
+                builder.streetParts(null == streetPartsSupplier ? streetParts : streetPartsSupplier.get());
+            }
+            return builder.build();
         }
         @Override
         public cz.jcode.auto.value.step.builder.example.innerclass.PersonWithAddress.Address get() {
