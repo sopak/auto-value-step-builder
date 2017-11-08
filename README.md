@@ -20,8 +20,8 @@ repositories {
 }
 
 dependencies {
-    compileOnly "cz.jcode.auto.value:auto-value-step-builder-annotations:0.0.2"
-    compileOnly "cz.jcode.auto.value:auto-value-step-builder:0.0.2"
+    compileOnly "cz.jcode.auto.value:auto-value-step-builder-annotations:0.0.3"
+    compileOnly "cz.jcode.auto.value:auto-value-step-builder:0.0.3"
 }
 
 idea.module {
